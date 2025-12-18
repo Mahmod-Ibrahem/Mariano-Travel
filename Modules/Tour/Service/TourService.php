@@ -2,6 +2,7 @@
 
 namespace Modules\Tour\Service;
 
+use App\Models\IpTable;
 use App\Models\TourImage;
 use App\Traits\ImagesUtility;
 use Illuminate\Http\UploadedFile;
@@ -99,5 +100,19 @@ class TourService
 
         // Store new uploaded file
         return $this->storeImage($newCover, 'tourCover');
+    }
+
+    public function storeIp($ip, $tour_id): void
+    {
+        $flag = IpTable::where('ip', $ip)->where('tour_id', $tour_id)->exists();
+        if (!$flag) {
+            IpTable::create([
+                'ip' => $ip,
+                'tour_id' => $tour_id
+            ]);
+            $tour = Tour::findOrFail($tour_id);
+            $tour->visit_count = $tour->visit_count + 1;
+            $tour->save();
+        }
     }
 }

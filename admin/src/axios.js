@@ -3,25 +3,24 @@ import store from "./store"
 import router from "./router/index.js";
 
 const axiosClient = axios.create({
-        // baseURL: 'https://mregypttours.com/api/',
-        baseURL: 'http://127.0.0.1:8000/api/',
+  baseURL: 'https://elomatypapyrus.com/api/',
+  // baseURL: 'http://127.0.0.1:8000/api/',
 });
 
-axiosClient.interceptors.request.use(config=>{
-     config.headers.Authorization=`Bearer ${store.state.user.token}`
-     return config
+axiosClient.interceptors.request.use(config => {
+  config.headers.Authorization = `Bearer ${store.state.user.token}`
+  return config
 })
 
-axiosClient.interceptors.response.use(response=>{
-    return response
-},error=>{
+axiosClient.interceptors.response.use(response => {
+  return response
+}, error => {
 
-  if(error.response.status===401)
-    {
-      store.commit('setToken',null)
-        router.push({name:'login'})
-    }
-    throw error
+  if (error.response.status === 401) {
+    store.commit('setToken', null)
+    router.push({ name: 'login' })
+  }
+  throw error
 })
 
 export default axiosClient

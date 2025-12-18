@@ -31,6 +31,7 @@ class DayTourController extends Controller
     public function show($category, $tour)
     {
         $tour = $this->tourService->getTourBySlug($tour);
+        $this->tourService->storeIp(request()->ip(), $tour->id);
         return view('tour::tour', compact('tour'));
     }
 }
