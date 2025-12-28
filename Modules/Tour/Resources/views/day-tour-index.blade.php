@@ -1,12 +1,7 @@
 @extends('layout.layouts')
-@section('title')
-    Egypt Day Tours | Egypt Excursions | Egypt Sightseeing Tours
-@endsection
-@section('description')
-    Explore the wonders of Egypt with our expert-led day tours and excursions. Discover iconic landmarks, delve into ancient
-    history, and experience vibrant cultures on unforgettable sightseeing adventures tailored to your interests
-@endsection
-@section('content')
+@section('title', 'Egypt Day Tours & Excursions')
+@section('description', 'Book Egypt day trips and excursions in 2025: Pyramids & Cairo highlights, Luxor temples, Aswan tours, and Red Sea adventures—tailored to your interests.')
+    @section('content')
     <!-- CONTENT START -->
     @include('layout.header', [
         'title' => 'Egypt Day Tours & Excursions',
@@ -14,12 +9,11 @@
         'image' => 'Images/day-tours.bg.jpg',
     ])
 
-<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 max-w-6xl mx-auto py-6">
+<div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 max-w-6xl mx-auto py-6">   
                         @forelse($categories as $category)
                                 @include('category::components.category-card')
                         @empty
                         @endforelse
                     </div>
-    </div>
     <!-- CONTENT END -->
 @endsection

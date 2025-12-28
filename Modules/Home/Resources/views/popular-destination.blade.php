@@ -8,12 +8,12 @@
                 </span>Destination</h2>
             <p class="text-base">Explore the best tours based on your chosen destination</p>
             <div class="-mt-7">
-                <img src="assets/images/background/Title-Separator.png" alt="Image" class="w-117.5 inline-block"
-                    width="470" height="70">
+                <img src="{{ asset('assets/images/background/Title-Separator.png') }}" alt="Image"
+                    class="w-117.5 inline-block" width="470" height="70">
             </div>
         </div>
         <!-- TITLE END-->
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 max-w-7xl mx-auto py-6">
+        <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 max-w-7xl mx-auto py-6">
             @forelse($locations as $location)
                 @include('location::components.destination-card')
             @empty

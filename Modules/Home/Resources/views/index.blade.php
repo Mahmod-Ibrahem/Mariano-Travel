@@ -1,10 +1,10 @@
 @extends('layout.layouts')
 @section('title')
-    Mr Egypt Tours | Discover Authentic Egypt with Unforgettable Tours
+    Top Egypt Tours & Packages | Pyramids, Luxor & Nile Cruise
 @endsection
 @section('description')
-    Explore the wonders of Egypt with Mr Egypt Tours. Offering personalized and unforgettable travel experiences across
-    iconic destinations like Cairo, Luxor, and the pyramids. Your adventure awaits!
+    Book unforgettable Egypt tours to Cairo, Luxor, Aswan & the Nile. Private guides, flexible itineraries, and great-value
+    packages—reserve today.
 @endsection
 @section('title')
     MrEgyptTorus
@@ -14,21 +14,12 @@
     {{-- @include('layout.loading-start') --}}
     <!-- LOADING AREA  END ===== -->
     @include('layout.cursor-pointer')
-
-    <div id="smooth-wrapper">
-        <div id="smooth-content">
-            <!-- CONTENT START -->
-            <div class="page-content">
-                @include('home::banner')
-                @include('home::popular-destination')
-                @include('home::popular-tours')
-                @include('home::gallery')
-                @include('home::why-choose-us')
-                {{-- @include('home::counter') --}}
-                @include('home::blogs')
-                @include('shared::testimonial')
-            </div>
-            <!-- CONTENT END -->
-        </div>
-    </div>
+    @include('home::banner')
+    @include('home::popular-destination')
+    @include('home::popular-tours')
+    @include('home::gallery')
+    @include('home::why-choose-us')
+    {{-- @include('home::counter') --}}
+    @include('home::blogs')
+    @include('shared::testimonial')
 @endsection

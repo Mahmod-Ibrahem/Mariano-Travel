@@ -15,5 +15,6 @@
     "Setting": true,
     "Itenary": true,
     "Gallery": true,
-    "Shared": true
+    "Shared": true,
+    "Notification": true
 }

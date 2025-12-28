@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Home\Http\Controllers\HomeController;
 
 /*
  *--------------------------------------------------------------------------
@@ -13,7 +12,3 @@ use Modules\Home\Http\Controllers\HomeController;
  * is assigned the "api" middleware group. Enjoy building your API!
  *
 */
-
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('home', HomeController::class)->names('home');
-});

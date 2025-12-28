@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Shared\Http\Controllers\SharedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +12,3 @@ use Modules\Shared\Http\Controllers\SharedController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::group([], function () {
-    Route::resource('shared', SharedController::class)->names('shared');
-});

@@ -191,5 +191,16 @@
                 setTimeout(calculateTotalPrice, 10);
             });
         });
+
+        // Initialize Flatpickr safely
+        const dateInput = document.querySelector('.flatpickr1');
+        if (dateInput && typeof flatpickr !== 'undefined') {
+            // Check if already initialized to avoid duplicates
+            if (!dateInput._flatpickr) {
+                flatpickr(dateInput, {
+                    minDate: "today"
+                });
+            }
+        }
     });
 </script>

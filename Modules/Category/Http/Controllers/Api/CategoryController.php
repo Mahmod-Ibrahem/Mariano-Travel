@@ -3,19 +3,16 @@
 namespace Modules\Category\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TranslationOfCategoryRequest;
 use App\Traits\ImagesUtility;
-use App\Traits\TourUtility;
 use Illuminate\Support\Facades\Storage;
 use Modules\Category\Entities\Category;
 use Modules\Category\Http\Requests\CategoryRequest;
 use Modules\Category\Transformers\CategoryListResource;
 use Modules\Category\Transformers\CategoryResource;
-use Modules\Category\Transformers\NonTranslatedCategoriesListResource;
 
 class CategoryController extends Controller
 {
-    use TourUtility, ImagesUtility;
+    use  ImagesUtility;
 
     /**
      * Display a listing of the resource.
@@ -62,7 +59,7 @@ class CategoryController extends Controller
 
     /**
      * Update the specified resource in storage.
-     */ 
+     */
     public function update(CategoryRequest $request, $category)
     {
         $validatedData = $request->validated();

@@ -4,14 +4,18 @@
 namespace Modules\Booking\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Modules\Booking\Http\Requests\BookingRequest;
 use Modules\Tour\Entities\Tour;
 use Modules\PayPal\Services\PayPalService;
 use DateTime;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 use Modules\Booking\Entities\TourBooking;
 use Modules\Tour\Service\TourService;
+use Modules\Booking\Notifications\BookingNotification;
+
 
 class BookingController extends Controller
 {
@@ -24,7 +28,7 @@ class BookingController extends Controller
         $totalPrice = $this->calculateTotalPrice($data['price_per_adult'], $data['adults'], $data['children']);
 
         $data['total_price'] = $totalPrice;
-        $data['start_date'] = (new DateTime($data['start_date']))->modify('+1 day')->format('Y-m-d');
+        $data['start_date'] = (new DateTime($data['start_date']));
 
         DB::beginTransaction(); {
             $booking = $this->createBooking($data, $tour);
@@ -34,8 +38,8 @@ class BookingController extends Controller
             $paypalService = app(PayPalService::class);
             return $this->handlePayPalPayment($paypalService, $totalPrice, $tour, $booking->id);
         }
-        // $users = User::where('is_admin', true)->get();
-        // Notification::send($users, new BookingNotification($tour, $booking));
+        $users = User::where('is_admin', true)->get();
+        Notification::send($users, new BookingNotification($tour, $booking));
         // Optional: Uncomment if you want to notify
         // Mail::to($data['email'])->send(new \App\Mail\InformUserForBookingMail());
         return view('booking::success', [
@@ -71,6 +75,7 @@ class BookingController extends Controller
             'total_price' => $data['total_price'],
             'tour_id' => $tour->id,
             'start_date' => $data['start_date'],
+
         ]);
     }
 

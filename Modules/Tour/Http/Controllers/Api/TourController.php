@@ -14,7 +14,7 @@ use Modules\Tour\Transformers\TourResource;
 
 class TourController extends Controller
 {
-    use TourUtility, ImagesUtility;
+    use  ImagesUtility;
 
     public function __construct(protected TourService $tourService) {}
     /**

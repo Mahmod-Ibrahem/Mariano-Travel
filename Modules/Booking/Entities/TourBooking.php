@@ -22,7 +22,9 @@ class TourBooking extends Model
         'total_price',
         'tour_id',
         'start_date',
-        'hotel'
+        'hotel',
+        'payment_method',
+        'status'
     ];
 
     protected $casts = [

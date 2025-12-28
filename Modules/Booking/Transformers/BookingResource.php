@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace Modules\Booking\Transformers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -19,14 +19,18 @@ class BookingResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'name' => $this->full_name,
             'email' => $this->email,
-            'phone' => $this->phone,
-            'date' => Carbon::parse($this->date)->format('d-m-Y'),
+            'start_date' => $this->start_date,
             'total_price' => $this->total_price,
             'country' => $this->country,
-            'adult' => $this->adult,
+            'adult' => $this->adults,
             'children' => $this->children,
+            'payment_method' => $this->payment_method,
+            'tour_id' => $this->tour_id,
+            'tour_group' => $this->tour->group,
+            'tour_title' => $this->tour->title,
+
         ];
     }
 }

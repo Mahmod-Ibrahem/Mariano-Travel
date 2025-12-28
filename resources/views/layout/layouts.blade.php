@@ -10,37 +10,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title -->
-    <title>Travlla - Travel & Tour Tailwind CSS Template | Home Page Style 3</title>
+    <title>@yield('title')</title>
 
-    <meta name="title" content="Travlla - Travel & Tour Tailwind CSS Template | DexignZone">
-    <meta name="description"
-        content="Travlla is a responsive Travel & Tour Tailwind CSS template designed for travel agencies, tour operators, holiday planners, and booking websites.">
-    <meta name="keywords"
-        content="travel HTML template, tour booking template, Tailwind travel website, tourism Tailwind template, holiday booking, responsive travel design, tour operator website, Travlla template, modern travel design, travel agency web design">
-    <meta name="author" content="DexignZone">
+    <meta name="title" content="@yield('title')">
+    <meta name="description" content="@yield('description')">
+    <meta name="author" content="Mama Coco Egypt Tours">
     <meta name="robots" content="index, follow">
 
     <!-- CANONICAL URL -->
-    <link rel="canonical" href="https://travlla.dexignzone.com/tailwind/demo/index-3.html">
+    <link rel="canonical" href="{{ url()->current() }}">
 
     <!-- FAVICONS ICON -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('Images/logo.jpg') }}">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Travlla - Travel & Tour Tailwind CSS Template | DexignZone">
-    <meta property="og:description"
-        content="Travlla is a responsive Travel & Tour Tailwind CSS template designed for travel agencies, tour operators, holiday planners, and booking websites.">
-    <meta property="og:image" content="https://travlla.dexignzone.com/tailwind/demo/social-image.png">
-    <meta property="og:url" content="https://travlla.dexignzone.com/demo/">
+    <meta property="og:title" content="Mama Coco Egypt Tours">
+    <meta property="og:description" content="@yield('description')">
+    <meta property="og:image" content="{{ asset('Images/logo.jpg') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Travlla">
+    <meta property="og:site_name" content="Mama Coco Egypt Tours">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Travlla - Travel & Tour Tailwind CSS Template | DexignZone">
-    <meta name="twitter:description"
-        content="Travlla is a responsive Travel & Tour Tailwind CSS template designed for travel agencies, tour operators, holiday planners, and booking websites.">
-    <meta name="twitter:image" content="https://travlla.dexignzone.com/tailwind/demo/social-image.png">
+    <meta name="twitter:title" content="Mama Coco Egypt Tours">
+    <meta name="twitter:description" content="@yield('description')">
+    <meta name="twitter:image" content="{{ asset('Images/logo.jpg') }}">
 
     <!-- IE Compatibility -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,8 +53,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/lc_lightbox.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/magnific-popup/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/nouislider/nouislider.min.css') }}">
-    {{--
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> --}}
     @vite('resources/css/app.css')
     <!-- style -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,19 +68,18 @@
     @endcomponent --}}
     @include('layout.navbar')
 
-    <div id="smooth-wrapper">
-        <div id="smooth-content">
-            @yield('content')
-            @include('layout.footer')
-        </div>
-    </div>
+    @yield('content')
+    @include('layout.footer')
 
     <!-- BUTTON TOP START -->
     <button class="scroltop"><span class="fa fa-angle-up relative" id="btn-vibrate"></span></button>
 
     <!-- JAVASCRIPT  FILES ========================================= -->
-    <script src="{{ asset('assets/vendor/gsap/gsap.min.js') }}"></script>
-    <script src=" {{ asset('assets/vendor/gsap/ScrollSmoother.js') }}"></script>
+
+    {{--
+    <script src="{{ asset('assets/vendor/gsap/gsap.min.js') }}"></script> --}}
+    {{--
+    <script src=" {{ asset('assets/vendor/gsap/ScrollSmoother.js') }}"></script> --}}
     <script src="{{ asset('assets/vendor/gsap/ScrollTrigger.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/flatpickr/js/flatpickr.js') }}"></script>
@@ -97,8 +89,10 @@
     <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/js/dz.carousel.js') }}"></script>
     <script src=" {{ asset('assets/js/lc_lightbox.lite.js') }}"></script>
-    <script src="{{ asset('assets/vendor/magnific-popup/magnific-popup.js') }}"></script>
-    <script src="{{ asset('assets/vendor/nouislider/nouislider.min.js') }}"></script>
+    {{--
+    <script src="{{ asset('assets/vendor/magnific-popup/magnific-popup.js') }}"></script> --}}
+    {{--
+    <script src="{{ asset('assets/vendor/nouislider/nouislider.min.js') }}"></script> --}}
     <script src="{{ asset('assets/vendor/group-slide/group-loop.js') }}"></script>
     <script src="{{ asset('assets/vendor/xmenu/xmenu.js') }}"></script>
     <script src="{{ asset('assets/js/animation.js') }}"></script>

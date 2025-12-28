@@ -27,12 +27,5 @@
             </li>
         </ul>
     </div>
-    <div class="absolute right-11.25 bottom-16.25 animate-slide-top2"><img
-            src="{{ asset('assets/images/hotballon-Left.png') }}" alt="Image" class="md:w-21 w-10" width="84"
-            height="121">
-    </div>
-    <div class="absolute md:-right-15 -right-10 top-41.25 animate-slide-top"><img
-            src="{{ asset('assets/images/hotballon-right.png') }}" alt="Image" class="md:w-37.5 w-20" width="230"
-            height="333">
-    </div>
+
 </section>

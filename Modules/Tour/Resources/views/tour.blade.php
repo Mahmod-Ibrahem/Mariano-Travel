@@ -97,7 +97,7 @@
 
                                     <div class="bg-eggshell rounded-3xl p-10 mb-10">
                                         <ul class="trv-list-st-1">
-                                            <li class="editor-content">
+                                            <li class="prose prose-p:text-base prose-p:text-[#066168] prose-p:leading-[1.2]">
                                                 {!! $tour->highlights !!}
                                             </li>
                                         </ul>

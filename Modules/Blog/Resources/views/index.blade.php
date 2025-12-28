@@ -1,11 +1,10 @@
-@extends('layout.layouts')
 @section('title')
-    Mr Egypt Tours Explore Ancient Wonders & Hidden Gems
-@endsection('title')
+Egypt Travel Blog | Guides, Tips & Things to Do
+@endsection
 @section('description')
-    Join us on a journey through Egypt’s rich history. Explore iconic landmarks like the Pyramids, temples, and more with
-    expert guides. Start your adventure today!
-@endsection('description')
+Travel smarter with Egypt guides, itineraries, and tips—Cairo, Luxor, Aswan, Nile cruises, and Red Sea ideas. Plan your trip with confidence.
+@endsection
+@extends('layout.layouts')
 @section('content')
 @include('layout.header',[
     'title'=>'Egypt Adventure Tours and Travel Tips Discover Egypt Your Way',

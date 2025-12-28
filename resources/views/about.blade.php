@@ -1,7 +1,6 @@
+@section('title', 'Why Choose Mama Coco Egypt Tours | Local Experts & Tailor-Made Trips')
+@section('description', 'Travel Egypt with confidence—custom itineraries, trusted local guides, and seamless planning from start to finish. Choose private or small-group tours and get fast support.')
 @extends('layout.layouts')
-@section('title', 'Who We Are ? | Mr Egypt Tours')
-
-
 @section('content')
     @include('layout.header', [
         'title' => 'About Mama Coco',
@@ -18,15 +17,10 @@
                     <div class="section-content">
                         <div class="trv-we-recommend2-row">
                             <div class="row flex flex-col md:flex-row justify-between">
-                                <div class="lg:w-7/12 w-full">
-                                    <div class="relative mr-6">
-                                        <div class="flex items-center justify-center mt-6 2xl:size-97.5 xl:size-90.5 md:size-75.5 size-70.5 rounded-full">
-                                            <img src="{{ asset('Images/logo.jpg') }}" alt="image"
-                                                class="w-full" width="350" height="350" loading="lazy">
-                                        </div>
-                                    </div>
+                                <div class="flex items-center justify-center my-6 rounded-full">
+                                    <img src="{{ asset('Images/logo.jpg') }}" alt="image"
+                                        class=" w-60 md:w-96 " width="350" height="350" loading="lazy" style="object-fit: cover;">
                                 </div>
-
                                 <div class="lg:w-5/12 w-full">
                                     <div class="xl:mb-30 mb-7.5 relative">
                                         <!-- TITLE START-->
@@ -87,14 +81,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <!--WE RECOMMEND SECTION END-->
             @include('components.services')
             @include('shared::testimonial')
         </div>
         <!-- CONTENT END -->
     </div>
-
-    <!-- BUTTON TOP START -->
-    <button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
 @endsection

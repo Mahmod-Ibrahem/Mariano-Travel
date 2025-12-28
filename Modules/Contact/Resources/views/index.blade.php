@@ -1,10 +1,10 @@
-@extends('layout.layouts')
 @section('title')
-    Mr Egypt Tours | Contact Us
+Contact Mama Coco Egypt Tours | Booking & Travel Support
 @endsection
 @section('description')
-    Contact us for any inquiries or questions. We're here to help!
+Contact Mama Coco Egypt Tours for tour inquiries, custom quotes, and booking support. We’ll help you plan day trips, packages, and Nile tours—message us today.
 @endsection
+@extends('layout.layouts')
 @section('content')
         @include('layout.header',[
             'title' => 'Contact Us',

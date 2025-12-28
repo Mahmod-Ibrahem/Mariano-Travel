@@ -1,11 +1,6 @@
+@section('title', 'Egypt Tour Packages | Egypt Sightseeing Tours')
+@section('description', 'Explore Egypt in 2026 with curated tour packages—Cairo, Luxor, Aswan & a Nile cruise. Flexible itineraries, trusted guides, and easy online booking')
 @extends('layout.layouts')
-@section('title')
-    Egypt Tour Packages | Egypt Excursions | Egypt Sightseeing Tours
-@endsection
-@section('description')
-    Explore the wonders of Egypt with our expert-led day tours and excursions. Discover iconic landmarks, delve into ancient
-    history, and experience vibrant cultures on unforgettable sightseeing adventures tailored to your interests
-@endsection
 @section('content')
     <!-- CONTENT START -->
     @include('layout.header', [

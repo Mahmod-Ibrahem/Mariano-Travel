@@ -20,6 +20,8 @@ return new class extends Migration {
             $table->string('total_price');
             $table->date('start_date');
             $table->foreignId('tour_id')->constrained('tours');
+            $table->enum('payment_method', ['cash', 'paypal'])->default('cash');
+            $table->enum('status', ['pending', 'completed', 'cancelled'])->default('pending');
             $table->timestamps();
         });
     }
