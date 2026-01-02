@@ -1,0 +1,456 @@
+﻿
+   INFO  Running migrations.  
+
+  2025_12_28_174121_refactor_reviews_table_for_translations  29.99ms FAIL
+php : [2025-12-28 17:46:33] local.ERROR: 
+SQLSTATE[23000]: Integrity constraint 
+violation: 4025 CONSTRAINT `reviews.title` 
+failed for `amrmosbah`.`reviews` 
+(Connection: mysql, SQL: alter table 
+`reviews` modify `title` json null, modify 
+`content` json null, modify `reviewer` json 
+null) {"exception":"[object] 
+(Illuminate\\Database\\QueryException(code: 
+23000): SQLSTATE[23000]: Integrity 
+constraint violation: 4025 CONSTRAINT 
+`reviews.title` failed for 
+`amrmosbah`.`reviews` (Connection: mysql, 
+SQL: alter table `reviews` modify `title` 
+json null, modify `content` json null, 
+modify `reviewer` json null) at D:\\All Proje
+ct\\RealProject\\AmrMosbah\\vendor\\laravel\\
+framework\\src\\Illuminate\\Database\\Connect
+ion.php:813)
+At line:1 char:1
++ php artisan migrate --force 2>&1 | 
+Out-File -FilePath migration_error ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified:  
+   ([2025-12-28 17:...ection.php:813):Strin  
+  g) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandE 
+   rror
+ 
+[stacktrace]
+#0 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Connection.php(767): Illuminate\\Dat
+abase\\Connection->runQueryCallback('alter 
+table `re...', Array, Object(Closure))
+#1 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Connection.php(560): 
+Illuminate\\Database\\Connection->run('alter 
+table `re...', Array, Object(Closure))
+#2 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Schema\\Blueprint.php(109): Illumina
+te\\Database\\Connection->statement('alter 
+table `re...')
+#3 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Schema\\Builder.php(564): Illuminate
+\\Database\\Schema\\Blueprint->build(Object(I
+lluminate\\Database\\MySqlConnection), Object
+(Illuminate\\Database\\Schema\\Grammars\\MySq
+lGrammar))
+#4 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Schema\\Builder.php(406): Illuminate
+\\Database\\Schema\\Builder->build(Object(Ill
+uminate\\Database\\Schema\\Blueprint))
+#5 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\S
+upport\\Facades\\Facade.php(357): Illuminate\
+\Database\\Schema\\Builder->table('reviews', 
+Object(Closure))
+#6 D:\\All Project\\RealProject\\AmrMosbah\\M
+odules\\Review\\Database\\migrations\\2025_12
+_28_174121_refactor_reviews_table_for_transla
+tions.php(14): Illuminate\\Support\\Facades\\
+Facade::__callStatic('table', Array)
+#7 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Migrations\\Migrator.php(482): Illum
+inate\\Database\\Migrations\\Migration@anonym
+ous->up()
+#8 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Migrations\\Migrator.php(408): Illum
+inate\\Database\\Migrations\\Migrator->runMet
+hod(Object(Illuminate\\Database\\MySqlConnect
+ion), Object(Illuminate\\Database\\Migrations
+\\Migration@anonymous), 'up')
+#9 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Migrations\\Migrator.php(417): Illum
+inate\\Database\\Migrations\\Migrator->Illumi
+nate\\Database\\Migrations\\{closure}()
+#10 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(214): Illu
+minate\\Database\\Migrations\\Migrator->runMi
+gration(Object(Illuminate\\Database\\Migratio
+ns\\Migration@anonymous), 'up')
+#11 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Console\\View\\Components\\Task.php(40): Illu
+minate\\Database\\Migrations\\Migrator->Illum
+inate\\Database\\Migrations\\{closure}()
+#12 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(745): Illu
+minate\\Console\\View\\Components\\Task->rend
+er('2025_12_28_1741...', Object(Closure))
+#13 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(214): Illu
+minate\\Database\\Migrations\\Migrator->write
+('Illuminate\\\\Cons...', 
+'2025_12_28_1741...', Object(Closure))
+#14 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(179): Illu
+minate\\Database\\Migrations\\Migrator->runUp
+('D:\\\\All Project\\\\...', 2, false)
+#15 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(122): Illu
+minate\\Database\\Migrations\\Migrator->runPe
+nding(Array, Array)
+#16 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Console\\Migrations\\MigrateCommand
+.php(116): Illuminate\\Database\\Migrations\\
+Migrator->run(Array, Array)
+#17 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(622): Illu
+minate\\Database\\Console\\Migrations\\Migrat
+eCommand->Illuminate\\Database\\Console\\Migr
+ations\\{closure}()
+#18 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Console\\Migrations\\MigrateCommand
+.php(109): Illuminate\\Database\\Migrations\\
+Migrator->usingConnection(NULL, 
+Object(Closure))
+#19 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Console\\Migrations\\MigrateCommand
+.php(88): Illuminate\\Database\\Console\\Migr
+ations\\MigrateCommand->runMigrations()
+#20 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Container\\BoundMethod.php(36): Illuminate\\D
+atabase\\Console\\Migrations\\MigrateCommand-
+>handle()
+#21 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Container\\Util.php(41): Illuminate\\Containe
+r\\BoundMethod::Illuminate\\Container\\{closu
+re}()
+#22 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Container\\BoundMethod.php(93): Illuminate\\C
+ontainer\\Util::unwrapIfClosure(Object(Closur
+e))
+#23 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Container\\BoundMethod.php(35): Illuminate\\C
+ontainer\\BoundMethod::callBoundMethod(Object
+(Illuminate\\Foundation\\Application), 
+Array, Object(Closure))
+#24 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Container\\Container.php(662): Illuminate\\Co
+ntainer\\BoundMethod::call(Object(Illuminate\
+\Foundation\\Application), Array, Array, 
+NULL)
+#25 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Console\\Command.php(212): 
+Illuminate\\Container\\Container->call(Array)
+#26 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\symfony\\console\\Command\\Command.ph
+p(279): Illuminate\\Console\\Command->execute
+(Object(Symfony\\Component\\Console\\Input\\A
+rgvInput), 
+Object(Illuminate\\Console\\OutputStyle))
+#27 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Console\\Command.php(181): Symfony\\Component
+\\Console\\Command\\Command->run(Object(Symfo
+ny\\Component\\Console\\Input\\ArgvInput), 
+Object(Illuminate\\Console\\OutputStyle))
+#28 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\symfony\\console\\Application.php(104
+9): Illuminate\\Console\\Command->run(Object(
+Symfony\\Component\\Console\\Input\\ArgvInput
+), Object(Symfony\\Component\\Console\\Output
+\\ConsoleOutput))
+#29 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\symfony\\console\\Application.php(318
+): Symfony\\Component\\Console\\Application->
+doRunCommand(Object(Illuminate\\Database\\Con
+sole\\Migrations\\MigrateCommand), Object(Sym
+fony\\Component\\Console\\Input\\ArgvInput), 
+Object(Symfony\\Component\\Console\\Output\\C
+onsoleOutput))
+#30 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\symfony\\console\\Application.php(169
+): Symfony\\Component\\Console\\Application->
+doRun(Object(Symfony\\Component\\Console\\Inp
+ut\\ArgvInput), Object(Symfony\\Component\\Co
+nsole\\Output\\ConsoleOutput))
+#31 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Foundation\\Console\\Kernel.php(196): Symfony
+\\Component\\Console\\Application->run(Object
+(Symfony\\Component\\Console\\Input\\ArgvInpu
+t), Object(Symfony\\Component\\Console\\Outpu
+t\\ConsoleOutput))
+#32 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Foundation\\Application.php(1183): Illuminate
+\\Foundation\\Console\\Kernel->handle(Object(
+Symfony\\Component\\Console\\Input\\ArgvInput
+), Object(Symfony\\Component\\Console\\Output
+\\ConsoleOutput))
+#33 D:\\All Project\\RealProject\\AmrMosbah\\
+artisan(13): Illuminate\\Foundation\\Applicat
+ion->handleCommand(Object(Symfony\\Component\
+\Console\\Input\\ArgvInput))
+#34 {main}
+
+[previous exception] [object] 
+(PDOException(code: 23000): SQLSTATE[23000]: 
+Integrity constraint violation: 4025 
+CONSTRAINT `reviews.title` failed for 
+`amrmosbah`.`reviews` at D:\\All Project\\Rea
+lProject\\AmrMosbah\\vendor\\laravel\\framewo
+rk\\src\\Illuminate\\Database\\Connection.php
+:571)
+[stacktrace]
+#0 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Connection.php(571): 
+PDOStatement->execute()
+#1 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Connection.php(800): Illuminate\\Dat
+abase\\Connection->Illuminate\\Database\\{clo
+sure}('alter table `re...', Array)
+#2 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Connection.php(767): Illuminate\\Dat
+abase\\Connection->runQueryCallback('alter 
+table `re...', Array, Object(Closure))
+#3 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Connection.php(560): 
+Illuminate\\Database\\Connection->run('alter 
+table `re...', Array, Object(Closure))
+#4 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Schema\\Blueprint.php(109): Illumina
+te\\Database\\Connection->statement('alter 
+table `re...')
+#5 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Schema\\Builder.php(564): Illuminate
+\\Database\\Schema\\Blueprint->build(Object(I
+lluminate\\Database\\MySqlConnection), Object
+(Illuminate\\Database\\Schema\\Grammars\\MySq
+lGrammar))
+#6 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Schema\\Builder.php(406): Illuminate
+\\Database\\Schema\\Builder->build(Object(Ill
+uminate\\Database\\Schema\\Blueprint))
+#7 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\S
+upport\\Facades\\Facade.php(357): Illuminate\
+\Database\\Schema\\Builder->table('reviews', 
+Object(Closure))
+#8 D:\\All Project\\RealProject\\AmrMosbah\\M
+odules\\Review\\Database\\migrations\\2025_12
+_28_174121_refactor_reviews_table_for_transla
+tions.php(14): Illuminate\\Support\\Facades\\
+Facade::__callStatic('table', Array)
+#9 D:\\All Project\\RealProject\\AmrMosbah\\v
+endor\\laravel\\framework\\src\\Illuminate\\D
+atabase\\Migrations\\Migrator.php(482): Illum
+inate\\Database\\Migrations\\Migration@anonym
+ous->up()
+#10 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(408): Illu
+minate\\Database\\Migrations\\Migrator->runMe
+thod(Object(Illuminate\\Database\\MySqlConnec
+tion), Object(Illuminate\\Database\\Migration
+s\\Migration@anonymous), 'up')
+#11 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(417): Illu
+minate\\Database\\Migrations\\Migrator->Illum
+inate\\Database\\Migrations\\{closure}()
+#12 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(214): Illu
+minate\\Database\\Migrations\\Migrator->runMi
+gration(Object(Illuminate\\Database\\Migratio
+ns\\Migration@anonymous), 'up')
+#13 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Console\\View\\Components\\Task.php(40): Illu
+minate\\Database\\Migrations\\Migrator->Illum
+inate\\Database\\Migrations\\{closure}()
+#14 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(745): Illu
+minate\\Console\\View\\Components\\Task->rend
+er('2025_12_28_1741...', Object(Closure))
+#15 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(214): Illu
+minate\\Database\\Migrations\\Migrator->write
+('Illuminate\\\\Cons...', 
+'2025_12_28_1741...', Object(Closure))
+#16 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(179): Illu
+minate\\Database\\Migrations\\Migrator->runUp
+('D:\\\\All Project\\\\...', 2, false)
+#17 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(122): Illu
+minate\\Database\\Migrations\\Migrator->runPe
+nding(Array, Array)
+#18 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Console\\Migrations\\MigrateCommand
+.php(116): Illuminate\\Database\\Migrations\\
+Migrator->run(Array, Array)
+#19 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Migrations\\Migrator.php(622): Illu
+minate\\Database\\Console\\Migrations\\Migrat
+eCommand->Illuminate\\Database\\Console\\Migr
+ations\\{closure}()
+#20 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Console\\Migrations\\MigrateCommand
+.php(109): Illuminate\\Database\\Migrations\\
+Migrator->usingConnection(NULL, 
+Object(Closure))
+#21 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Database\\Console\\Migrations\\MigrateCommand
+.php(88): Illuminate\\Database\\Console\\Migr
+ations\\MigrateCommand->runMigrations()
+#22 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Container\\BoundMethod.php(36): Illuminate\\D
+atabase\\Console\\Migrations\\MigrateCommand-
+>handle()
+#23 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Container\\Util.php(41): Illuminate\\Containe
+r\\BoundMethod::Illuminate\\Container\\{closu
+re}()
+#24 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Container\\BoundMethod.php(93): Illuminate\\C
+ontainer\\Util::unwrapIfClosure(Object(Closur
+e))
+#25 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Container\\BoundMethod.php(35): Illuminate\\C
+ontainer\\BoundMethod::callBoundMethod(Object
+(Illuminate\\Foundation\\Application), 
+Array, Object(Closure))
+#26 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Container\\Container.php(662): Illuminate\\Co
+ntainer\\BoundMethod::call(Object(Illuminate\
+\Foundation\\Application), Array, Array, 
+NULL)
+#27 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Console\\Command.php(212): 
+Illuminate\\Container\\Container->call(Array)
+#28 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\symfony\\console\\Command\\Command.ph
+p(279): Illuminate\\Console\\Command->execute
+(Object(Symfony\\Component\\Console\\Input\\A
+rgvInput), 
+Object(Illuminate\\Console\\OutputStyle))
+#29 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Console\\Command.php(181): Symfony\\Component
+\\Console\\Command\\Command->run(Object(Symfo
+ny\\Component\\Console\\Input\\ArgvInput), 
+Object(Illuminate\\Console\\OutputStyle))
+#30 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\symfony\\console\\Application.php(104
+9): Illuminate\\Console\\Command->run(Object(
+Symfony\\Component\\Console\\Input\\ArgvInput
+), Object(Symfony\\Component\\Console\\Output
+\\ConsoleOutput))
+#31 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\symfony\\console\\Application.php(318
+): Symfony\\Component\\Console\\Application->
+doRunCommand(Object(Illuminate\\Database\\Con
+sole\\Migrations\\MigrateCommand), Object(Sym
+fony\\Component\\Console\\Input\\ArgvInput), 
+Object(Symfony\\Component\\Console\\Output\\C
+onsoleOutput))
+#32 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\symfony\\console\\Application.php(169
+): Symfony\\Component\\Console\\Application->
+doRun(Object(Symfony\\Component\\Console\\Inp
+ut\\ArgvInput), Object(Symfony\\Component\\Co
+nsole\\Output\\ConsoleOutput))
+#33 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Foundation\\Console\\Kernel.php(196): Symfony
+\\Component\\Console\\Application->run(Object
+(Symfony\\Component\\Console\\Input\\ArgvInpu
+t), Object(Symfony\\Component\\Console\\Outpu
+t\\ConsoleOutput))
+#34 D:\\All Project\\RealProject\\AmrMosbah\\
+vendor\\laravel\\framework\\src\\Illuminate\\
+Foundation\\Application.php(1183): Illuminate
+\\Foundation\\Console\\Kernel->handle(Object(
+Symfony\\Component\\Console\\Input\\ArgvInput
+), Object(Symfony\\Component\\Console\\Output
+\\ConsoleOutput))
+#35 D:\\All Project\\RealProject\\AmrMosbah\\
+artisan(13): Illuminate\\Foundation\\Applicat
+ion->handleCommand(Object(Symfony\\Component\
+\Console\\Input\\ArgvInput))
+#36 {main}
+"} 
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `reviews.title` failed for `amrmosbah`.`reviews` (Connection: mysql, SQL: alter table `reviews` modify `title` json null, modify `content` json null, modify `reviewer` json null)
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:813
+    809Γûò                     $this->getName(), $query, $this->prepareBindings($bindings), $e
+    810Γûò                 );
+    811Γûò             }
+    812Γûò 
+  Γ₧£ 813Γûò             throw new QueryException(
+    814Γûò                 $this->getName(), $query, $this->prepareBindings($bindings), $e
+    815Γûò             );
+    816Γûò         }
+    817Γûò     }
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connection.php:571
+      PDOException::("SQLSTATE[23000]: Integrity constraint violation: 4025 CONSTRAINT `reviews.title` failed for `amrmosbah`.`reviews`")
+
+  2   vendor\laravel\framework\src\Illuminate\Database\Connection.php:571
+      PDOStatement::execute()
+

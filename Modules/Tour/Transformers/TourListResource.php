@@ -20,11 +20,12 @@ class TourListResource extends JsonResource
             'title' => $this->title,
             'group' => $this->group,
             'preference' => $this->preference,
-            'tour_cover' => $this->tour_cover,
+            'tour_cover' => asset($this->tour_cover),
             'price_per_person' => $this->price_per_person,
             'price_two_five' => $this->price_two_five,
             'price_six_twenty' => $this->price_six_twenty,
             'duration' => $this->duration,
+            'is_bookable' => $this->is_bookable,
         ];
     }
 }

@@ -17,13 +17,14 @@ class ReviewResource extends JsonResource
 
     public function toArray(Request $request): array
     {
-
+        $locale = request('locale', app()->getLocale());
         return [
             'id' => $this->id,
-            'reviewer' => $this->reviewer,
-            'tour_id' => $this->tour_id,
-            'title' => $this->title,
-            'content' => $this->content
+            'reviewer' => $this->getTranslation('reviewer', $locale),
+            'title' => $this->getTranslation('title', $locale),
+            'content' => $this->getTranslation('content', $locale),
+            'created_at' => $this->created_at?->format('Y-m-d H:i:s'),
+            'updated_at' => $this->updated_at?->format('Y-m-d H:i:s'),
         ];
     }
 }

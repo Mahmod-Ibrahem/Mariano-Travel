@@ -1,17 +1,17 @@
 const ClinicMasterGsap = function(){
   
-  gsap.registerPlugin( ScrollSmoother, ScrollTrigger );
+  // gsap.registerPlugin( ScrollSmoother, ScrollTrigger );
 
-  let smoother;
+  // let smoother;
 
-  if (!smoother) {
-    smoother = ScrollSmoother.create({
-      smooth: 2,
-      effects: true,
-      normalizeScroll: true,
-      smoothTouch: 0.1, 
-    });
-  }
+  // if (!smoother) {
+  //   smoother = ScrollSmoother.create({
+  //     smooth: 2,
+  //     effects: true,
+  //     normalizeScroll: true,
+  //     smoothTouch: 0.1, 
+  //   });
+  // }
   
 	const headerWrapper = document.getElementById('headerWrapper1');
 	if(headerWrapper){
@@ -22,13 +22,13 @@ const ClinicMasterGsap = function(){
 	  ease: "power2.out"
 	});
 
-	ScrollTrigger.create({
-	  trigger: "#headerWrapper1",
-	  start: "bottom top",
-	  onEnter: () => tl.play(),      
-	  onLeaveBack: () => tl.reverse() 
-	});
-	}
+	// ScrollTrigger.create({
+	//   trigger: "#headerWrapper1",
+	//   start: "bottom top",
+	//   onEnter: () => tl.play(),      
+	//   onLeaveBack: () => tl.reverse() 
+	// });
+	// }
 
   const linkSmoothScroll = () => {
 	  const anchorLinks = Array.from(document.querySelectorAll('a[href^="#"]'))

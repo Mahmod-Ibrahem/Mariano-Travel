@@ -9,10 +9,11 @@ use Modules\Category\Entities\Category;
 use Modules\Category\Http\Requests\CategoryRequest;
 use Modules\Category\Transformers\CategoryListResource;
 use Modules\Category\Transformers\CategoryResource;
+use Modules\Shared\Trait\helper;
 
 class CategoryController extends Controller
 {
-    use  ImagesUtility;
+    use  ImagesUtility, helper;
 
     /**
      * Display a listing of the resource.
@@ -38,6 +39,7 @@ class CategoryController extends Controller
 
         $category = new Category();
         $category->type = $validatedData['type'];
+        $category->country_id = $validatedData['country_id'];
         $category->image = $storedImage;
 
         $locale = $validatedData['locale'];
@@ -63,25 +65,18 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, $category)
     {
         $validatedData = $request->validated();
+        // $validatedData = $this->getNotEmptyValues($validatedData);
         $category = Category::findOrFail($category);
-        if ($request->hasFile('image')) {
+        if ($validatedData['image'] ?? false) {
             if ($category->image) {
                 $relativePath = $this->getRelativePath($category->image);
                 if (Storage::exists($relativePath)) {
                     Storage::delete($relativePath);
                 }
             }
-            $category->image = $this->storeImage($validatedData['image'], 'category');
+            $validatedData['image'] = $this->storeImage($validatedData['image'], 'category');
         }
-
-        if (isset($validatedData['type'])) {
-            $category->type = $validatedData['type'];
-        }
-
-        $locale = $validatedData['locale'];
-        $this->setTranslations($category, $validatedData, $locale);
-
-        $category->save();
+        $category->update($validatedData);
 
         return response()->json(['message' => 'Category updated successfully'], 200);
     }

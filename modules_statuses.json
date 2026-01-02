@@ -16,5 +16,8 @@
     "Itenary": true,
     "Gallery": true,
     "Shared": true,
-    "Notification": true
+    "Notification": true,
+    "Country": true,
+    "SuperCategory": true,
+    "Page": true
 }

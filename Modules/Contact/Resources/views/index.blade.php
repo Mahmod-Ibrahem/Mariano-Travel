@@ -1,188 +1,131 @@
 @section('title')
-Contact Mama Coco Egypt Tours | Booking & Travel Support
+Contact Mariano Tours | Booking & Travel Support
 @endsection
+
 @section('description')
-Contact Mama Coco Egypt Tours for tour inquiries, custom quotes, and booking support. We’ll help you plan day trips, packages, and Nile tours—message us today.
+Contact Mariano Tours for tour inquiries, custom quotes, and booking support. We’ll help you plan day trips, packages, and Nile tours—message us today.
 @endsection
+
 @extends('layout.layouts')
+
 @section('content')
-        @include('layout.header',[
-            'title' => 'Contact Us',
-            'breadcrumb' => 'Contact Us',
-            'image' => 'images/contact-bg.jpg',
-        ])        
-            <!-- CONTENT START -->
-            <div class="page-content">
-                <div class="xl:py-30 py-12.5 px-5">
-                    <div
-                        class="max-w-437.5 mx-auto bg-white rounded-6xl xl:p-15 p-5 shadow-[0px_4px_80px_rgba(6,97,104,0.28)] relative">
-                        <!-- GOOGLE MAP -->
-                        <div class="w-full md:h-150 mb-15">
-                            <div class="gmap-outline">
-                                <div class="google-map">
-                                    <div class="overflow-hidden" style="width: 100%">
-                                        <iframe class="max-md:h-90 w-full rounded-4xl" height="600"
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.272796714594!2d-87.64937353634511!3d41.90849403896016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd324fc400797%3A0x76a989827d7eb84e!2s853%20W%20Blackhawk%20St%2C%20Chicago%2C%20IL%2060642%2C%20USA!5e0!3m2!1sen!2sin!4v1745326667544!5m2!1sen!2sin"></iframe>
-                                    </div>
-                                </div>
+    @include('layout.header', [
+        'title' => 'Contact Us',
+        'breadcrumb' => 'Contact Us',
+        'image' => 'images/contact-bg.jpg',
+    ])
+
+    <!-- CONTACT SECTION START -->
+    <section class="py-16 md:py-24 bg-white relative overflow-hidden">
+        <!-- Decoration elements -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-lightturquoise/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-safety-orange/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- GOOGLE MAP -->
+            <div class="w-full mb-20 shadow-2xl rounded-[2.5rem] overflow-hidden border-8 border-white">
+                <iframe class="w-full h-[400px] md:h-[550px]"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110502.60385042835!2d31.1107!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583fa60b21beeb%3A0x79dfb296efaa7f4!2sCairo%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1625612345678!5m2!1sen!2seg"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-16 items-center max-w-7xl mx-auto">
+                <!-- INFO & ILLUSTRATION -->
+                <div class="lg:col-span-6 space-y-10">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-display font-bold text-emeraldblue mb-6 leading-tight">
+                            Reach & Get in <span class="text-safety-orange">Touch</span> With Us!
+                        </h2>
+                        <p class="text-gray-500 font-title text-lg leading-relaxed max-w-lg">
+                            We'd love to hear from you. Our friendly team is always here to chat and help you plan your perfect Egyptian adventure.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Card 1 -->
+                        <div class="bg-white p-6 rounded-3xl shadow-lg border border-gray-50 hover:shadow-xl transition-all duration-300">
+                            <div class="w-14 h-14 bg-safety-orange/10 text-safety-orange rounded-2xl flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-phone-volume text-xl"></i>
                             </div>
+                            <h5 class="text-lg font-bold text-emeraldblue mb-1">Phone</h5>
+                            <a href="tel:+201210200380" class="text-gray-500 font-title text-sm hover:text-safety-orange transition-colors">+20 121 020 0380</a>
                         </div>
-
-                        <div class="grid grid-cols-12 lg:gap-7.5">
-                            <div class="2xl:col-span-6 lg:col-span-5 col-span-12">
-                                <div>
-                                    <div
-                                        class="bg-[#FFF8EB] xl:py-15 xl:px-12.5 sm:p-7.5 p-5 rounded-3xl max-lg:mx-auto max-lg:max-w-160 max-md:max-w-full">
-                                        <!-- TITLE START-->
-                                        <div class="sm:mb-15 mb-7.5">
-                                            <h2 class="xl:text-46 md:text-40 text-3xl mb-2.5"><span
-                                                    class="text-citrusyellow">Reach</span> & Get in Touch With Us!</h2>
-                                            <div class="text-base">We'love to hear from you. Our friendly team is always
-                                                here to chat</div>
-                                        </div>
-                                        <!-- TITLE END-->
-                                        <form method="POST" action="{{ route('contact.post') }}">
-                                            @csrf
-                                            <div class="dzSubscribeMsg"></div>
-                                            <input type="hidden"
-                                                class="block w-full sm:h-18.5 h-12.5 rounded-5xl border border-primary/20 sm:py-5 sm:px-10 py-1.25 px-3.75 sm:text-base text-sm text-bodycolor bg-white outline-0 placeholder:text-bodycolor"
-                                                name="dzToDo" value="Contact">
-                                            <input type="hidden"
-                                                class="block w-full sm:h-18.5 h-12.5 rounded-5xl border border-primary/20 sm:py-5 sm:px-10 py-1.25 px-3.75 sm:text-base text-sm text-bodycolor bg-white outline-0 placeholder:text-bodycolor"
-                                                name="reCaptchaEnable" value="0">
-                                            <div class="dzFormMsg">
-                                            </div>
-
-                                            <div class="mb-5">
-                                                <input
-                                                    class="block w-full sm:h-18.5 h-12.5 rounded-5xl border border-primary/20 sm:py-5 sm:px-10 py-1.25 px-3.75 sm:text-base text-sm text-bodycolor bg-white outline-0 placeholder:text-bodycolor @error('name') border-red-500 @enderror"
-                                                    type="text" name="name" id="fullname" placeholder="Enter Your Name"
-                                                    value="{{ old('name') }}">
-                                                @error('name')
-                                                    <span class="text-red-500 text-sm m-2 block pl-5">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="mb-5">
-                                                <input
-                                                    class="block w-full sm:h-18.5 h-12.5 rounded-5xl border border-primary/20 sm:py-5 sm:px-10 py-1.25 px-3.75 sm:text-base text-sm text-bodycolor bg-white outline-0 placeholder:text-bodycolor @error('email') border-red-500 @enderror"
-                                                    type="email" name="email" id="emailaddress"
-                                                    placeholder="Enter Email Address" value="{{ old('email') }}">
-                                                @error('email')
-                                                    <span
-                                                        class="text-red-500 text-sm font-medium m-2 block pl-5">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="mb-5">
-                                                <input
-                                                    class="block w-full sm:h-18.5 h-12.5 rounded-5xl border border-primary/20 sm:py-5 sm:px-10 py-1.25 px-3.75 sm:text-base text-sm text-bodycolor bg-white outline-0 placeholder:text-bodycolor @error('subject') border-red-500 @enderror"
-                                                    type="text" name="subject" id="Subject"
-                                                    placeholder="Select Your Subject" value="{{ old('subject') }}">
-                                                @error('subject')
-                                                    <span class="text-red-500 text-sm m-2 block pl-5">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="mb-5">
-                                                <textarea name="message" id="message"
-                                                    class="block w-full min-h-42 h-full rounded-3xl border border-primary/20 py-10 px-7.5 sm:text-base text-sm text-bodycolor bg-white outline-0 placeholder:text-bodycolor @error('message') border-red-500 @enderror"
-                                                    placeholder="Write Your Message">{{ old('message') }}</textarea>
-                                                @error('message')
-                                                    <span class="text-red-500 text-sm m-2 block pl-5">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="mb-5">
-                                                {{-- <div class="input-recaptcha">
-                                                    <div class="g-recaptcha" data-sitekey="<!-- Put your reCaptcha Key -->"
-                                                        data-callback="verifyRecaptchaCallback"
-                                                        data-expired-callback="expiredRecaptchaCallback"></div>
-                                                    <input class="form-control hidden" style="display:none;"
-                                                        data-recaptcha="true" required
-                                                        data-error="Please complete the Captcha">
-                                                </div> --}}
-                                            </div>
-                                            <button name="submit" type="submit" value="Submit"
-                                                class="site-button butn-bg-shape">Send Message</button>
-                                        </form>
-
-                                    </div>
-                                </div>
+                        <!-- Card 2 -->
+                        <div class="bg-white p-6 rounded-3xl shadow-lg border border-gray-50 hover:shadow-xl transition-all duration-300">
+                            <div class="w-14 h-14 bg-safety-orange/10 text-safety-orange rounded-2xl flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-envelope-open-text text-xl"></i>
                             </div>
-                            <div class="2xl:col-span-6 lg:col-span-7 col-span-12">
-                                <div class="relative z-1">
-                                    <div class="lg:pt-34.5 pt-12.5 lg:w-112.5 w-full lg:ml-6 max-lg:px-7.5  max-md:px-0">
-                                        <!-- TITLE START-->
-                                        <div class="sm:mb-15 mb-7.5">
-                                            <h2 class="xl:text-46 md:text-40 text-3xl mb-2.5">Contact Us<span
-                                                    class="text-citrusyellow"> Detail</span></h2>
-                                        </div>
-                                        <!-- TITLE END-->
-
-                                        <ul>
-                                            <li class="mb-7.5">
-                                                <div class="sm:flex items-center max-sm:text-center">
-                                                    <div
-                                                        class="bg-[#45869D] size-25 rounded-5xl flex items-center justify-center max-sm:mx-auto max-sm:mb-5">
-                                                        <div
-                                                            class="bg-white shadow-[0px_4px_4px_rgba(0,0,0,0.25)] size-17.5 rounded-5xl flex items-center justify-center">
-                                                            <i class="fa-solid fa-phone-volume text-34 text-skyblue"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="sm:w-[calc(100%_-_100px)] sm:pl-7.5">
-                                                        <span
-                                                            class="text-lg font-normal text-primary leading-[1.4]">Phone</span>
-                                                        <h6 class="md:text-28 text-xl text-darkcyan !font-semibold"><a
-                                                                href="tel:1236540214">123 654 0214</a></h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="mb-7.5">
-                                                <div class="sm:flex items-center max-sm:text-center">
-                                                    <div
-                                                        class="bg-[#CE8594] size-25 rounded-5xl flex items-center justify-center max-sm:mx-auto max-sm:mb-5">
-                                                        <div
-                                                            class="bg-white shadow-[0px_4px_4px_rgba(0,0,0,0.25)] size-17.5 rounded-5xl flex items-center justify-center">
-                                                            <i class="fa-solid fa-envelope text-34 text-[#CE8594]"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="sm:w-[calc(100%_-_100px)] sm:pl-7.5">
-                                                        <span
-                                                            class="text-lg font-normal text-primary leading-[1.4]">Email</span>
-                                                        <h6 class="md:text-28 text-xl text-darkcyan !font-semibold"><a
-                                                                href="mailto:info@example.com">travllainfo@gmail.com</a>
-                                                        </h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="mb-7.5">
-                                                <div class="sm:flex items-center max-sm:text-center">
-                                                    <div
-                                                        class="bg-[#047881] size-25 rounded-5xl flex items-center justify-center max-sm:mx-auto max-sm:mb-5">
-                                                        <div
-                                                            class="bg-white shadow-[0px_4px_4px_rgba(0,0,0,0.25)] size-17.5 rounded-5xl flex items-center justify-center">
-                                                            <i class="fa-solid fa-house text-34 text-[#047881]"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="sm:w-[calc(100%_-_100px)] sm:pl-7.5">
-                                                        <span
-                                                            class="text-lg font-normal text-primary leading-[1.4]">Address</span>
-                                                        <h6 class="md:text-28 text-xl text-darkcyan !font-semibold">55/11
-                                                            ronin tower, New York</h6>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-
-                                        <div class="lg:pt-12.5 max-sm:text-center">
-                                            <h3 class="!font-display md:text-48 sm:text-40 text-2xl">Let's <span
-                                                    class="text-citrusyellow">Talk</span></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <h5 class="text-lg font-bold text-emeraldblue mb-1">Email</h5>
+                            <a href="mailto:info@egyptroyaltours.com" class="text-gray-500 font-title text-sm hover:text-safety-orange transition-colors">info@egyptroyaltours.com</a>
                         </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <img src="{{ asset('Images/icons/travel-train-station.svg') }}" class="w-full max-w-[450px] mx-auto opacity-90" alt="Travel Icon">
+                    </div>
+                </div>
+
+                <!-- CONTACT FORM CARD -->
+                <div class="lg:col-span-6">
+                    <div class="bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] p-8 md:p-12 border border-gray-50 relative">
+                        <div class="absolute -top-6 -right-6 w-20 h-20 bg-safety-orange text-white rounded-full flex items-center justify-center text-3xl shadow-xl shadow-safety-orange/20 animate-bounce">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-emeraldblue mb-8">Send us a Message</h3>
+
+                        <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
+                            @csrf
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label for="name" class="text-sm font-semibold text-gray-700 ml-1">Full Name</label>
+                                    <input type="text" name="name" id="name" value="{{ old('name') }}" required
+                                        class="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 outline-none focus:bg-white focus:border-safety-orange focus:ring-4 focus:ring-safety-orange/5 transition-all font-title"
+                                        placeholder="John Doe">
+                                    @error('name')
+                                        <p class="text-red-500 text-xs mt-1 ml-1">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="email" class="text-sm font-semibold text-gray-700 ml-1">Email Address</label>
+                                    <input type="email" name="email" id="email" value="{{ old('email') }}" required
+                                        class="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 outline-none focus:bg-white focus:border-safety-orange focus:ring-4 focus:ring-safety-orange/5 transition-all font-title"
+                                        placeholder="john@example.com">
+                                    @error('email')
+                                        <p class="text-red-500 text-xs mt-1 ml-1">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="subject" class="text-sm font-semibold text-gray-700 ml-1">Subject</label>
+                                <input type="text" name="subject" id="subject" value="{{ old('subject') }}" required
+                                    class="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 outline-none focus:bg-white focus:border-safety-orange focus:ring-4 focus:ring-safety-orange/5 transition-all font-title"
+                                    placeholder="Tour Inquiry">
+                                @error('subject')
+                                    <p class="text-red-500 text-xs mt-1 ml-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="message" class="text-sm font-semibold text-gray-700 ml-1">Your Message</label>
+                                <textarea name="message" id="message" rows="5" required
+                                    class="w-full bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4 outline-none focus:bg-white focus:border-safety-orange focus:ring-4 focus:ring-safety-orange/5 transition-all font-title resize-none"
+                                    placeholder="Write your message here...">{{ old('message') }}</textarea>
+                                @error('message')
+                                    <p class="text-red-500 text-xs mt-1 ml-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <button type="submit" 
+                                class="w-full bg-safety-orange hover:bg-orange-600 text-white font-bold py-5 rounded-2xl shadow-xl shadow-safety-orange/20 transition-all duration-300 transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3">
+                                <span>Send Message</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
-            <!-- CONTENT END -->
-
-
-@endsection('content')
+        </div>
+    </section>
+@endsection

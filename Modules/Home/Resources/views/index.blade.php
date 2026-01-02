@@ -15,11 +15,9 @@
     <!-- LOADING AREA  END ===== -->
     @include('layout.cursor-pointer')
     @include('home::banner')
-    @include('home::popular-destination')
-    @include('home::popular-tours')
-    @include('home::gallery')
     @include('home::why-choose-us')
-    {{-- @include('home::counter') --}}
-    @include('home::blogs')
+    @include('home::popular-destination')
+    @include('home::tour-category')
+    @include('home::popular-tours')
     @include('shared::testimonial')
 @endsection

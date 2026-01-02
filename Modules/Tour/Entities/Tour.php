@@ -18,12 +18,17 @@ class Tour extends Model
 {
     use HasFactory, HasTranslations, Sluggable;
 
-    protected $fillable = ['category_id', 'group', 'preference', 'tour_cover', 'price_per_person', 'price_two_five', 'price_six_twenty', 'slug', 'title', 'description', 'duration', 'highlights', 'video_url'];
+    protected $fillable = ['category_id', 'group', 'preference', 'tour_cover', 'price_per_person', 'price_two_five', 'price_six_twenty', 'slug', 'title', 'description', 'duration', 'highlights', 'video_url', 'is_bookable'];
     public $translatable = ['slug', 'title', 'description', 'duration', 'highlights'];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function country()
+    {
+        return $this->category->country();
     }
 
     public function images()

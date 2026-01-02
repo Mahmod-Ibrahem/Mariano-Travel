@@ -37,6 +37,25 @@
                     </div>
 
                     <div class="p-6 space-y-4">
+                        <!-- Country Select -->
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1.5">
+                                Country <span class="text-red-500">*</span>
+                            </label>
+                            <Select v-model="category.country_id" :options="countriesOptions" optionLabel="name"
+                                optionValue="id" placeholder="Select Country" class="w-full"
+                                :class="{ 'border-red-400': errors.country_id?.[0] }" />
+                            <p v-if="errors.country_id?.[0]"
+                                class="mt-1.5 text-red-500 text-sm flex items-center gap-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                {{ errors.country_id[0] }}
+                            </p>
+                        </div>
+
                         <!-- Tour Section Select -->
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1.5">
@@ -105,8 +124,9 @@
                         <label class="block text-sm font-medium text-slate-700 mb-1.5">
                             Category Description
                         </label>
-                        <Editor v-model="category.description" editorStyle="height: 200px; border-radius: 0.75rem;"
-                            placeholder="Enter category description..." class="rounded-xl overflow-hidden" />
+                        <CustomInput type="textarea" v-model="category.description"
+                            placeholder="Enter category description..." class="rounded-xl overflow-hidden"
+                            :errors="errors.description" />
                     </div>
                 </div>
 
@@ -214,11 +234,12 @@
 
 <script setup>
 import Spinner from './../../components/Core/Spinner.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from "vue-router";
 import store from "../../store/index.js"
 import CustomInput from '../../components/Core/CustomInput.vue';
 import Editor from 'primevue/editor';
+import { Select } from "primevue";
 
 const emit = defineEmits(['update:modelValue', 'close'])
 const route = useRoute()
@@ -232,6 +253,7 @@ const category = ref({
     description: '',
     bg_header: '',
     type: '',
+    country_id: null,
     name: '',
     image: '',
     locale: 'en',
@@ -241,6 +263,7 @@ const category = ref({
 
 const errors = ref({})
 const imagePreview = ref(null)
+const countriesOptions = computed(() => store.state.countries.data)
 
 function handleFileChange(image) {
     const file = image
@@ -285,6 +308,7 @@ function onSubmit($event, close = false) {
 }
 
 onMounted(() => {
+    store.dispatch('countries/getCountries')
     if (route.params.id) {
         loading.value = true
         store.dispatch('getCategory', { id: route.params.id, locale: 'en' })

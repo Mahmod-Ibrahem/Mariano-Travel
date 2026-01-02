@@ -40,6 +40,7 @@ class TourRequest extends FormRequest
             'price_six_twenty' => 'required',
             'deleted_images_ids' => 'nullable|array',
             'video_url' => 'nullable|url',
+            'is_bookable' => 'required|boolean',
         ];
 
         if ($this->isMethod('POST')) {

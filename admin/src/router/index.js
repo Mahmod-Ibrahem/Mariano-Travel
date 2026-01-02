@@ -25,6 +25,10 @@ import Gallery from "../views/Gallery/Gallery.vue";
 import GalleryForm from "../views/Gallery/GalleryForm.vue";
 import Bookings from "../views/Bookings/Bookings.vue";
 import BookingForm from "../views/Bookings/BookingForm.vue";
+import Countries from "../views/Country/Countries.vue";
+import CountryForm from "../views/Country/CountryForm.vue";
+import SuperCategories from "../views/SuperCategory/SuperCategories.vue";
+import SuperCategoryForm from "../views/SuperCategory/SuperCategoryForm.vue"
 
 const routes = [
     {
@@ -206,6 +210,36 @@ const routes = [
                 path: 'bookings/:id',
                 name: 'app.bookings.edit',
                 component: BookingForm
+            },
+            {
+                path: 'countries',
+                name: 'app.countries',
+                component: Countries,
+            },
+            {
+                path: 'countries/create',
+                name: 'app.countries.create',
+                component: CountryForm,
+            },
+            {
+                path: 'countries/:id',
+                name: 'app.countries.edit',
+                component: CountryForm,
+            },
+            {
+                path:'super-categories',
+                name:'app.super-categories',
+                component:SuperCategories
+            },
+            {
+                path:'super-categories/create',
+                name:'app.super-categories.create',
+                component:SuperCategoryForm
+            },
+            {
+                path:'super-categories/:id',
+                name:'app.super-categories.edit',
+                component:SuperCategoryForm
             },
         ],
     },

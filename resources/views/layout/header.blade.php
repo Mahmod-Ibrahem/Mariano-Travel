@@ -1,7 +1,7 @@
-<section class="hero_section" style="background-image: url('{{asset($image)}}')">
+<section class="header-section" style="background-image: url('{{asset($image)}}')">
     <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/80 to-slate-900"></div>
     <div class="w-full h-full inline-flex items-center justify-center">
-        <h3 class="backgroundImageHeader">
+        <h3 class="header-title">
             {{ $title }}
         </h3>
     </div>

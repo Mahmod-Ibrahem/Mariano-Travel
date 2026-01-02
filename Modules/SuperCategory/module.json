@@ -1,0 +1,11 @@
+{
+    "name": "SuperCategory",
+    "alias": "supercategory",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\SuperCategory\\App\\Providers\\SuperCategoryServiceProvider"
+    ],
+    "files": []
+}

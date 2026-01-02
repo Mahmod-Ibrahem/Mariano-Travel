@@ -103,6 +103,20 @@ const nodes = ref([
             },
             {
                 key: '0-4',
+                label: 'Super Category',
+                data: 'Home Folder',
+                to: { name: 'app.super-categories' },
+                icon: 'pi pi-fw pi-list',
+            },
+            {
+                key: '0-5',
+                label: 'Countries',
+                data: 'Home Folder',
+                to: { name: 'app.countries' },
+                icon: 'pi pi-fw pi-list',
+            },
+            {
+                key: '0-6',
                 label: 'App Keys',
                 data: 'Home Folder',
                 to: { name: 'app.settings' },

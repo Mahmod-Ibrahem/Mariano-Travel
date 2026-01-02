@@ -35,26 +35,6 @@
                     </div>
 
                     <div class="p-6 space-y-6">
-                        <!-- Tour Selection -->
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 mb-1.5">
-                                Tour <span class="text-red-500">*</span>
-                            </label>
-                            <Select name="type" v-model="review.tour_id" :options="[
-                                { id: null, title: '🏠 Home Page' },
-                                ...tours
-                            ]" optionLabel="title" optionValue="id"
-                                placeholder="Select Tour That This Review Belongs To" class="w-full" />
-                            <p v-if="errors.tour_id?.[0]" class="mt-1.5 text-red-500 text-sm flex items-center gap-1">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                {{ errors.tour_id[0] }}
-                            </p>
-                        </div>
-
                         <!-- Reviewer Name -->
                         <div>
                             <label class="block text-sm font-medium text-slate-700 mb-1.5">
@@ -130,7 +110,7 @@ const loading = ref(false)
 const review = ref({
     id: null,
     reviewer: '',
-    tour_id: '',
+    tour_id: null,
     title: '',
     content: '',
 })
@@ -144,6 +124,17 @@ const errors = ref({
 })
 const tours = ref('')
 
+function fetchReview(id) {
+    loading.value = true
+    store.dispatch('getReview', { id })
+        .then(({ data }) => {
+            review.value = data
+        })
+        .finally(() => {
+            loading.value = false
+        })
+}
+
 function onSubmit($event, close = false) {
     loading.value = true
     if (review.value.id) {
@@ -151,11 +142,17 @@ function onSubmit($event, close = false) {
             .then(response => {
                 loading.value = false;
                 if (response.status === 200) {
-                    store.commit('showToast', 'Review has  successfully updated')
+                    store.commit('showToast', 'Review has successfully updated')
                     store.dispatch('getReviews')
                     if (close) {
                         router.push({ name: 'app.reviews' })
                     }
+                }
+            })
+            .catch(err => {
+                loading.value = false;
+                if (err.response.status === 422) {
+                    errors.value = err.response.data.errors
                 }
             })
     } else {
@@ -163,7 +160,7 @@ function onSubmit($event, close = false) {
             .then(response => {
                 loading.value = false;
                 if (response.status === 201) {
-                    store.commit('showToast', 'Review has  successfully created')
+                    store.commit('showToast', 'Review has successfully created')
                     store.dispatch('getReviews')
                     if (close) {
                         router.push({ name: 'app.reviews' })
@@ -185,12 +182,11 @@ function onSubmit($event, close = false) {
 }
 
 onMounted(() => {
-
     loading.value = true
     if (route.params.id) {
         Promise.all([
-            store.dispatch('getReview', route.params.id),
-            store.dispatch('getProducts', { perPage: 9999 }) //by default it will get tours with locale en
+            store.dispatch('getReview', { id: route.params.id }),
+            store.dispatch('getProducts', { perPage: 9999 })
         ])
             .then(([reviewResponse, productsResponse]) => {
                 review.value = reviewResponse.data;
@@ -208,6 +204,5 @@ onMounted(() => {
             loading.value = false
         })
     }
-
 })
 </script>

@@ -1,19 +1,18 @@
-<div class="relative z-1 group">
-    <div class="rounded-3xl overflow-hidden relative shadow-lg h-125">
+<div class="relative flex flex-col flex-shrink-0 group snap-start">
+    <div class="overflow-hidden w-full aspect-square rounded-3xl shadow-lg relative">
         <a href="#" class="block w-full h-full">
-            <img src="{{ $location->image }}" alt="{{ $location->name }}"
-                class="w-full h-full object-cover object-center transition-transform duration-700 ease-in-out group-hover:scale-110"
-                width="400" height="500" loading="lazy">
-            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500"></div>
+            <img src="{{$country->image}}"
+                class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500 transform"
+                alt="{{$country->name}}">
         </a>
-
-        <div class="absolute bottom-5 left-5 right-5 z-20">
-            <h3 class="text-2xl font-bold">
-                <a href="#"
-                    class="block text-primary bg-white/95 backdrop-blur-sm text-center py-4 rounded-2xl shadow-md transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:shadow-xl group-hover:-translate-y-1">
-                    {{ $location->name }}
-                </a>
-            </h3>
+        <div
+            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-300 pointer-events-none">
         </div>
+    </div>
+    <div class="absolute left-1/2 -translate-x-1/2 -bottom-4 z-10 w-[85%] md:w-[80%] max-w-[18rem]">
+        <h1 class="text-lg font-semibold text-center py-3 px-4 rounded-xl  bg-white shadow-lg whitespace-nowrap 
+            overflow-hidden text-ellipsis">
+            {{$country->name}}
+        </h1>
     </div>
 </div>

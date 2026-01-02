@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-4 md:p-8">
         <!-- Header -->
-        <div class="max-w-7xl mx-auto mb-6">
+        <div class="mb-6">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
@@ -23,9 +23,7 @@
         </div>
 
         <!-- Content -->
-        <div class="max-w-7xl mx-auto">
-            <InclusionsTable></InclusionsTable>
-        </div>
+        <InclusionsTable></InclusionsTable>
     </div>
 </template>
 <script setup>

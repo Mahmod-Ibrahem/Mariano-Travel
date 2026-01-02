@@ -24,6 +24,8 @@ return new class extends Migration {
             $table->text('preference')->nullable();
             $table->integer('visit_count')->default(0);
             $table->string('tour_cover');
+            $table->boolean('is_bookable')->default(true);
+            $table->string('video_url')->nullable();
             $table->unsignedBigInteger('price_per_person');
             $table->unsignedBigInteger('price_two_five');
             $table->unsignedBigInteger('price_six_twenty');

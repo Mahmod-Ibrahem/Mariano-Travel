@@ -13,12 +13,17 @@ class Category extends Model
 {
     use HasFactory, HasTranslations, Sluggable;
 
-    protected $fillable = ['type', 'image', 'slug', 'name', 'header', 'bg_header', 'description', 'title_meta', 'description_meta'];
+    protected $fillable = ['country_id', 'type', 'image', 'slug', 'name', 'header', 'bg_header', 'description', 'title_meta', 'description_meta'];
     public $translatable = ['slug', 'name', 'header', 'bg_header', 'description', 'title_meta', 'description_meta'];
 
     public function tours()
     {
         return $this->hasMany(Tour::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(\Modules\Country\Entities\Country::class);
     }
 
     public function getRouteKeyName()

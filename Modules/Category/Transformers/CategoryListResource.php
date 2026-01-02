@@ -14,12 +14,11 @@ class CategoryListResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        $locale = request('locale', 'en');
         return [
             'id' => $this->id,
             'type' => $this->type,
-            'name' => $this->getTranslation('name', $locale),
-            'image_url' => $this->image
+            'name' => $this->name,
+            'image_url' => asset($this->image)
         ];
     }
 }

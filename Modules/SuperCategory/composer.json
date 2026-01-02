@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/supercategory",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\SuperCategory\\": "",
+            "Modules\\SuperCategory\\Database\\Factories\\": "database/factories/",
+            "Modules\\SuperCategory\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\SuperCategory\\Tests\\": "tests/"
+        }
+    }
+}

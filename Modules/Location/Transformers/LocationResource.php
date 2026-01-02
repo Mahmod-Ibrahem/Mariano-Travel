@@ -21,7 +21,7 @@ class LocationResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'position' => $this->position,
-            'image_url' => $this->image
+            'image_url' => asset($this->image)
         ];
     }
 }

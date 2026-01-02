@@ -11,7 +11,6 @@
 </template>
 <script setup>
 import ProductsTable from './ProductsTable.vue';
-import { ref } from 'vue';
 </script>
 
 <style scoped></style>

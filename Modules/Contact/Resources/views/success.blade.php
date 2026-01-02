@@ -23,7 +23,7 @@
 <script>
     setTimeout(
         () => {
-            window.location.href = "/";
+            window.location.href = "{{ route($route) }}";
         },
         9000
     )

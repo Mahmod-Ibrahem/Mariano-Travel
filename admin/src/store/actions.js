@@ -47,7 +47,7 @@ export function createProduct({commit}, product) {
         const form = new FormData();
         form.append('group', product.group);
         form.append('category_id',product.category_id)
-        form.append('preference', product.preference ?? null);
+        form.append('preference', product.preference ?? '');
         form.append('title', product.title);
         form.append('description', product.description);
         form.append('highlights', product.highlights);
@@ -69,7 +69,9 @@ export function createProduct({commit}, product) {
         form.append('price_per_person', product.price_per_person);
         form.append('price_two_five', product.price_two_five);
         form.append('price_six_twenty', product.price_six_twenty);
+        form.append('country_id', product.country_id ?? '')
         form.append('tour_cover', product.tour_cover);
+        form.append('is_bookable', product.is_bookable ? 1 : 0);
         product.tour_images.forEach((file, index) => {
             form.append(`tour_images[${index}]`, file); // Add each file to FormData
         });
@@ -84,7 +86,7 @@ export function updateProduct({commit}, product) {
         const form = new FormData();
         form.append('group', product.group);
         form.append('category_id',product.category_id)
-        form.append('preference', product.preference ?? null);
+        form.append('preference', product.preference ?? '');
         form.append('title', product.title);
         form.append('description', product.description);
         form.append('highlights', product.highlights);
@@ -106,7 +108,9 @@ export function updateProduct({commit}, product) {
         form.append('price_per_person', product.price_per_person);
         form.append('price_two_five', product.price_two_five);
         form.append('price_six_twenty', product.price_six_twenty);
+        form.append('country_id', product.country_id ?? '')
         form.append('tour_cover', product.tour_cover);
+        form.append('is_bookable', product.is_bookable ? 1 : 0);
         product.tour_images.forEach((file, index) => {
             form.append(`tour_images[${index}]`, file); // Add each file to FormData
         });
@@ -182,12 +186,13 @@ export function updateCategory({commit}, category) {
     if (category.image instanceof File) {
         const form = new FormData();
         form.append("id", category.id);
+        form.append("country_id",category.country_id)
         form.append('type', category.type);
         form.append('locale', category.locale);
-        form.append('header', category.header);
-        form.append('bg_header', category.bg_header);
-        form.append('description', category.description);
-        form.append('name', category.name);
+        form.append('header', category.header?? '');
+        form.append('bg_header', category.bg_header? category.bg_header : '');
+        form.append('description', category.description? category.description : '');
+        form.append('name', category.name? category.name : '');
         form.append('image', category.image);
         form.append('title_meta', category.title_meta);
         form.append('description_meta', category.description_meta);
@@ -217,7 +222,7 @@ export function getReviews(
 
 }
 
-export function getReview({commit}, id) {
+export function getReview({commit}, {id}) {
     return axiosClient.get(`/reviews/${id}`)
 }
 

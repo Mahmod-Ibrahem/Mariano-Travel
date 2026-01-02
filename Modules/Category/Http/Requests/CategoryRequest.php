@@ -23,19 +23,18 @@ class CategoryRequest extends FormRequest
     {
         $rules = [
             'type' => 'bail|required',
-            'header' => 'bail|required',
-            'bg_header' => 'bail|required',
-            'description' => 'bail|required',
-            'name' => 'bail|required',
-            'title_meta'=> 'bail|required',
+            'header' => 'bail|nullable',
+            'bg_header' => 'bail|nullable',
+            'description' => 'bail|nullable',
+            'name' => 'bail|nullable',
+            'title_meta' => 'bail|required',
             'description_meta' => 'bail|required',
-            'locale' => 'bail|required|in:en,sp',
+            'country_id' => 'bail|required|exists:countries,id',
         ];
 
-        if($this->isMethod('POST')) {
+        if ($this->isMethod('POST')) {
             $rules['image'] = 'bail|required|image|mimes:jpeg,png,jpg,webp';
-        }
-        else{
+        } else {
             $rules['image'] = 'bail|nullable|image|mimes:jpeg,png,jpg,webp';
         }
         return $rules;

@@ -14,6 +14,12 @@ class ReviewListResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        $locale = request('locale', app()->getLocale());
+        return [
+            'id' => $this->id,
+            'reviewer' => $this->getTranslation('reviewer', $locale),
+            'title' => $this->getTranslation('title', $locale),
+            'content' => $this->getTranslation('content', $locale),
+        ];
     }
 }

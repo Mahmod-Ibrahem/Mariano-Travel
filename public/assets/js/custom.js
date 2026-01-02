@@ -1,28 +1,28 @@
 const Travlla = (function () {
   const handleCursorsection = () => {
     let cursor = document.querySelector(".cursor");
-    let cursor2 = document.querySelector(".cursor2");
+    // let cursor2 = document.querySelector(".cursor2");
     let cursorScale = document.querySelectorAll(".cursor-scale");
     let mouseX = 0;
     let mouseY = 0;
 
-    gsap.to({}, 0.016, {
-      repeat: -1,
-      onRepeat: function () {
-        gsap.set(cursor, {
-          css: {
-            left: mouseX,
-            top: mouseY,
-          },
-        });
-        gsap.set(cursor2, {
-          css: {
-            left: mouseX,
-            top: mouseY,
-          },
-        });
-      },
-    });
+    // gsap.to({}, 0.016, {
+    //   repeat: -1,
+    //   onRepeat: function () {
+    //     gsap.set(cursor, {
+    //       css: {
+    //         left: mouseX,
+    //         top: mouseY,
+    //       },
+    //     });
+    //     gsap.set(cursor2, {
+    //       css: {
+    //         left: mouseX,
+    //         top: mouseY,
+    //       },
+    //     });
+    //   },
+    // });
 
     window.addEventListener("mousemove", (e) => {
       mouseX = e.clientX;

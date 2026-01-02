@@ -15,6 +15,6 @@ use Modules\Contact\Http\Controllers\ContactController;
 */
 
 Route::prefix('contact')->group(function () {
-    Route::get('/', 'ContactController@index')->name('contact.index');
-    Route::post('/submit', 'ContactController@store')->name('contact.post');
+    Route::resource('contact', ContactController::class)
+        ->only(['index', 'store']);
 });

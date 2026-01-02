@@ -39,6 +39,8 @@
                     <div class="p-6 space-y-4">
                         <!-- Tour Group & Preference Row -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+
                             <div>
                                 <label class="block text-sm font-medium text-slate-700 mb-1.5">
                                     Tour Group <span class="text-red-500">*</span>
@@ -59,7 +61,7 @@
                                 <label class="block text-sm font-medium text-slate-700 mb-1.5">
                                     Tour Category <span class="text-red-500">*</span>
                                 </label>
-                                <Select v-model="product.category_id" :options="categoriesOptions" optionLabel="name"
+                                <Select v-model="product.category_id" :options="categoryByGroup" optionLabel="name"
                                     optionValue="id" placeholder="Select Tour Category" class="w-full" />
                                 <p v-if="errors.category_id?.[0]"
                                     class="mt-1.5 text-red-500 text-sm flex items-center gap-1">
@@ -88,6 +90,7 @@
                                     {{ errors.preference[0] }}
                                 </p>
                             </div>
+
                         </div>
 
                         <!-- Title -->
@@ -168,6 +171,9 @@
                       transition-all duration-200"
                                         :class="{ 'border-red-400': errors[`itenary.${index}.title`]?.[0] }" />
 
+                                    <p v-if="errors[`itenary.${index}.title`]?.[0]" class="text-red-500 text-sm">
+                                        {{ errors[`itenary.${index}.title`][0] }}
+                                    </p>
                                     <Editor v-model="itenary.description"
                                         editorStyle="height: 180px; border-radius: 0.75rem;"
                                         :placeholder="`Describe day ${index + 1} activities...`"
@@ -301,8 +307,11 @@
                                                     class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
                                                 <input v-model="product.price_per_person" type="number" placeholder="0"
                                                     class="w-full pl-7 pr-3 py-2 bg-white border border-indigo-200 rounded-lg 
-                                             text-sm" />
+                                             text-sm" :class="{ 'border-red-400': errors.price_per_person?.[0] }" />
                                             </div>
+                                            <p v-if="errors.price_per_person?.[0]" class="text-red-500 text-sm">
+                                                {{ errors.price_per_person[0] }}
+                                            </p>
                                         </div>
                                         <div>
                                             <label class="block text-xs text-indigo-600 mb-1">2-5 Guests</label>
@@ -311,8 +320,11 @@
                                                     class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
                                                 <input v-model="product.price_two_five" type="number" placeholder="0"
                                                     class="w-full pl-7 pr-3 py-2 bg-white border border-indigo-200 rounded-lg 
-                                             text-sm" />
+                                             text-sm" :class="{ 'border-red-400': errors.price_two_five?.[0] }" />
                                             </div>
+                                            <p v-if="errors.price_two_five?.[0]" class="text-red-500 text-sm">
+                                                {{ errors.price_two_five[0] }}
+                                            </p>
                                         </div>
                                         <div>
                                             <label class="block text-xs text-indigo-600 mb-1">6-12 Guests</label>
@@ -321,10 +333,21 @@
                                                     class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
                                                 <input v-model="product.price_six_twenty" type="number" placeholder="0"
                                                     class="w-full pl-7 pr-3 py-2 bg-white border border-indigo-200 rounded-lg 
-                            text-sm" />
+                            text-sm" :class="{ 'border-red-400': errors.price_six_twenty?.[0] }" />
                                             </div>
+                                            <p v-if="errors.price_six_twenty?.[0]" class="text-red-500 text-sm">
+                                                {{ errors.price_six_twenty[0] }}
+                                            </p>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="flex items-center gap-3 mt-2">
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <ToggleSwitch v-model="product.is_bookable" />
+                                        <span class="ml-3 text-sm font-medium text-slate-700">
+                                            {{ product.is_bookable ? 'Bookable' : 'Not Bookable' }}
+                                        </span>
+                                    </label>
                                 </div>
                             </div>
 
@@ -451,6 +474,7 @@ import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from "vue-router";
 import store from "../../store/index.js"
 import Editor from 'primevue/editor';
+import ToggleSwitch from 'primevue/toggleswitch';
 import { MultiSelect, Select } from "primevue";
 import CustomInput from "../../components/Core/CustomInput.vue";
 
@@ -479,7 +503,7 @@ const product = ref({
     price_two_five: '',
     price_six_twenty: '',
     deleted_images_ids: [],
-    // published: false
+    is_bookable: true,
 })
 const errors = ref({
     title: [],
@@ -499,6 +523,7 @@ const errors = ref({
     price_per_person: [],
     price_two_five: [],
     price_six_twenty: [],
+    is_bookable: [],
 })
 
 const groups = ref([
@@ -515,7 +540,8 @@ const locations = computed(() => store.state.locations.data)
 const included = computed(() => store.state.inclusions.data)
 const excluded = computed(() => store.state.exclusions.data)
 const imagePreview = ref(null)
-const categoriesOptions = computed(() => categories?.value?.filter((category) => category.type === product.value.group))
+const categoryByGroup = computed(() => categories?.value?.filter((category) => category.type === product.value.group))
+
 function handleProductImages(event) {
     const filesArray = Array.from(event.target.files);
     product.value.tour_images.push(...filesArray); // Convert FileList to an array
@@ -589,7 +615,7 @@ onMounted(() => {
             }),
             store.dispatch('getInclusions'),
             store.dispatch('getExclusions'),
-            store.dispatch('getLocations')
+            store.dispatch('getLocations'),
         ]).then(([productResponse]) => {
             product.value = productResponse.data
             imagePreview.value = product.value.tour_cover
@@ -603,7 +629,7 @@ onMounted(() => {
             store.dispatch('getInclusions'),
             store.dispatch('getExclusions'),
             store.dispatch('getLocations'),
-            store.dispatch('getCategories')
+            store.dispatch('getCategories'),
         ]).finally(() => {
             loading.value = false
         })

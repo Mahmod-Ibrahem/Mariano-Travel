@@ -26,11 +26,12 @@ trait ImagesUtility
             $resizedImages = $this->resizeImage($img, $type); // Small and Large Images
             $resizedImages->toWebp()->save(storage_path('app/public/' . $directoryPath . $uniqueName));
 
-            return url('storage/' . $directoryPath . $uniqueName);
+            // return url('storage/' . $directoryPath . $uniqueName);
+            return '/storage/' . $directoryPath . $uniqueName;
         } catch (Exception $e) {
             return response()->json(['message' => 'Error processing image: ' . $e->getMessage()], 500);
         }
-    }
+    }   
 
     function makeDirectory($directoryPath): void
     {

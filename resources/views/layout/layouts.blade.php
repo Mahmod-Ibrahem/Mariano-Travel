@@ -14,7 +14,7 @@
 
     <meta name="title" content="@yield('title')">
     <meta name="description" content="@yield('description')">
-    <meta name="author" content="Mama Coco Egypt Tours">
+    <meta name="author" content="Mariano Tours">
     <meta name="robots" content="index, follow">
 
     <!-- CANONICAL URL -->
@@ -24,16 +24,16 @@
     <link rel="icon" type="image/png" href="{{ asset('Images/logo.jpg') }}">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Mama Coco Egypt Tours">
+    <meta property="og:title" content="Mariano Tours">
     <meta property="og:description" content="@yield('description')">
     <meta property="og:image" content="{{ asset('Images/logo.jpg') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Mama Coco Egypt Tours">
+    <meta property="og:site_name" content="Mariano Tours">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mama Coco Egypt Tours">
+    <meta name="twitter:title" content="Mariano Tours">
     <meta name="twitter:description" content="@yield('description')">
     <meta name="twitter:image" content="{{ asset('Images/logo.jpg') }}">
 
@@ -63,7 +63,7 @@
 
 </head>
 
-<body class="selection:bg-[#484848] selection:text-white">
+<body class="selection:bg-[#484848] selection:text-white font-title">
     {{-- @component('layout.ContactNav')
     @endcomponent --}}
     @include('layout.navbar')
@@ -71,32 +71,25 @@
     @yield('content')
     @include('layout.footer')
 
-    <!-- BUTTON TOP START -->
-    <button class="scroltop"><span class="fa fa-angle-up relative" id="btn-vibrate"></span></button>
-
-    <!-- JAVASCRIPT  FILES ========================================= -->
-
-    {{--
-    <script src="{{ asset('assets/vendor/gsap/gsap.min.js') }}"></script> --}}
-    {{--
-    <script src=" {{ asset('assets/vendor/gsap/ScrollSmoother.js') }}"></script> --}}
+    @vite('resources/js/app.js')
     <script src="{{ asset('assets/vendor/gsap/ScrollTrigger.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/flatpickr/js/flatpickr.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
-    <script src=" {{ asset('assets/js/theia-sticky-sidebar.js') }}"></script>
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script> --}}
+    {{-- <script src=" {{ asset('assets/js/theia-sticky-sidebar.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script> --}}
     <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/js/dz.carousel.js') }}"></script>
-    <script src=" {{ asset('assets/js/lc_lightbox.lite.js') }}"></script>
+    {{-- <script src=" {{ asset('assets/js/lc_lightbox.lite.js') }}"></script> --}}
     {{--
     <script src="{{ asset('assets/vendor/magnific-popup/magnific-popup.js') }}"></script> --}}
     {{--
     <script src="{{ asset('assets/vendor/nouislider/nouislider.min.js') }}"></script> --}}
-    <script src="{{ asset('assets/vendor/group-slide/group-loop.js') }}"></script>
-    <script src="{{ asset('assets/vendor/xmenu/xmenu.js') }}"></script>
-    <script src="{{ asset('assets/js/animation.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    {{-- <script src="{{ asset('assets/vendor/group-slide/group-loop.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/vendor/xmenu/xmenu.js') }}"></script> --}}
+    {{--
+    <script src="{{ asset('assets/js/animation.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/js/custom.js') }}"></script> --}}
 </body>
 
 </html>

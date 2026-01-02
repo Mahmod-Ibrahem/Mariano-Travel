@@ -20,7 +20,7 @@ class GalleryResource extends JsonResource
         return [
             'id' => $this->id,
             'alternative' => $this->alternative,
-            'image' => $this->image
+            'image' => asset($this->image)
         ];
     }
 }

@@ -3,8 +3,8 @@
 namespace Modules\Review\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreReviewRequest;
 use Modules\Review\Entities\Review;
+use Modules\Review\Http\Requests\ReviewRequest;
 use Modules\Review\Transformers\ReviewListResource;
 use Modules\Review\Transformers\ReviewResource;
 
@@ -17,61 +17,60 @@ class ReviewController extends Controller
         $search = request('search');
         $perPage = request('perPage', 10);
 
-        // Eager load 'category' relationship
-        $reviews = Review::with(['tour.tourTranslations' => function ($query) {
-            $query->where('locale', 'en');
-        }])
+        $reviews = Review::query()
+            ->with(['tour'])
             ->orderBy($SortField, $SortDirection);
 
         if ($search) {
-            $reviews->where('title', 'LIKE', "%$search%")
-                ->orWhere('content', 'LIKE', "%$search%")
-                ->orWhereHas('tour', function ($query) use ($search) {
-                    $query->where('title', 'LIKE', "%$search%");
-                }); //Wherehas used to search tour title
+            $reviews->where(function ($query) use ($search) {
+                $query->where('title->' . app()->getLocale(), 'LIKE', "%$search%")
+                    ->orWhere('content->' . app()->getLocale(), 'LIKE', "%$search%")
+                    ->orWhere('reviewer->' . app()->getLocale(), 'LIKE', "%$search%");
+            });
         }
-
 
         return ReviewListResource::collection($reviews->paginate($perPage));
     }
 
-    public function show($id)
+    public function show(Review $review)
     {
-        $review = Review::find($id);
-
-        if ($review) {
-            return new ReviewResource($review);
-        } else {
-            return response()->json(['message' => 'Review not found'], 404);
-        }
+        $review->load('tour');
+        return new ReviewResource($review);
     }
 
 
-    public function update(StoreReviewRequest $request)
+    public function update(ReviewRequest $request, Review $review)
     {
-        $data = request()->all();
-        $review = Review::find($data['id']);
-        $review->update($data);
+        $validatedData = $request->validated();
+
+        $review->setTranslation('title', app()->getLocale(), $validatedData['title']);
+        $review->setTranslation('content', app()->getLocale(), $validatedData['content']);
+        $review->setTranslation('reviewer', app()->getLocale(), $validatedData['reviewer']);
+
+        $review->save();
+
         return new ReviewResource($review);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function store(StoreReviewRequest $request)
+    public function store(ReviewRequest $request)
     {
-        $data = $request->validated();
-        $review = Review::create($data);
+        $validatedData = $request->validated();
+
+        $review = new Review();
+        $review->setTranslation('title', app()->getLocale(), $validatedData['title']);
+        $review->setTranslation('content', app()->getLocale(), $validatedData['content']);
+        $review->setTranslation('reviewer', app()->getLocale(), $validatedData['reviewer']);
+
+        $review->save();
+
         return new ReviewResource($review);
     }
 
-    public function destroy($id)
+    public function destroy(Review $review)
     {
-
-        $review = Review::find($id);
-        if ($review == null) {
-            return response()->json(['message' => 'Review not found'], 404);
-        }
         $review->delete();
         return response()->noContent();
     }

@@ -465,139 +465,139 @@ const TravllaCarousel = function () {
     );
   };
 
-  const handleFilterSwiper = () => {
-    if (jQuery(".pro-filtr-cate-bx").length) {
-      const config = {
-        pagination: ".swiper-pagination",
-        slidesPerView: 1,
-        slidesPerColumn: 1,
-        paginationClickable: true,
-        spaceBetween: 0,
-        autoHeight: false,
-        centerInsufficientSlides: true,
-        centeredSlidesBounds: true,
-        cssMode: false,
-        mousewheel: false,
-        keyboard: false,
-        speed: 3000,
-        parallax: true,
-        freeMode: true,
-        loop: true,
-        grabCursor: true,
-        autoplay: {
-          delay: 1500,
-          disableOnInteraction: false,
-        },
-        breakpoints: {
-          0: {
-            slidesPerView: 1,
-            slidesPerGroup: 1,
-            slidesPerColumn: 1,
-            spaceBetween: 0,
-          },
-          768: {
-            slidesPerView: 2,
-            slidesPerGroup: 1,
-            slidesPerColumn: 1,
-            spaceBetween: 0,
-          },
-          991: {
-            slidesPerView: 3,
-            slidesPerGroup: 1,
-            slidesPerColumn: 1,
-            spaceBetween: 0,
-          },
-          1366: {
-            slidesPerView: 3,
-            slidesPerGroup: 1,
-            slidesPerColumn: 1,
-            spaceBetween: 0,
-          },
-        },
-        // If we need pagination
-        pagination: {
-          el: ".swiper-pagination",
-          type: "fraction",
-        },
-        // Navigation arrows
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
+  // const handleFilterSwiper = () => {
+  //   if (jQuery(".pro-filtr-cate-bx").length) {
+  //     const config = {
+  //       pagination: ".swiper-pagination",
+  //       slidesPerView: 1,
+  //       slidesPerColumn: 1,
+  //       paginationClickable: true,
+  //       spaceBetween: 0,
+  //       autoHeight: false,
+  //       centerInsufficientSlides: true,
+  //       centeredSlidesBounds: true,
+  //       cssMode: false,
+  //       mousewheel: false,
+  //       keyboard: false,
+  //       speed: 3000,
+  //       parallax: true,
+  //       freeMode: true,
+  //       loop: true,
+  //       grabCursor: true,
+  //       autoplay: {
+  //         delay: 1500,
+  //         disableOnInteraction: false,
+  //       },
+  //       breakpoints: {
+  //         0: {
+  //           slidesPerView: 1,
+  //           slidesPerGroup: 1,
+  //           slidesPerColumn: 1,
+  //           spaceBetween: 0,
+  //         },
+  //         768: {
+  //           slidesPerView: 2,
+  //           slidesPerGroup: 1,
+  //           slidesPerColumn: 1,
+  //           spaceBetween: 0,
+  //         },
+  //         991: {
+  //           slidesPerView: 3,
+  //           slidesPerGroup: 1,
+  //           slidesPerColumn: 1,
+  //           spaceBetween: 0,
+  //         },
+  //         1366: {
+  //           slidesPerView: 3,
+  //           slidesPerGroup: 1,
+  //           slidesPerColumn: 1,
+  //           spaceBetween: 0,
+  //         },
+  //       },
+  //       // If we need pagination
+  //       pagination: {
+  //         el: ".swiper-pagination",
+  //         type: "fraction",
+  //       },
+  //       // Navigation arrows
+  //       navigation: {
+  //         nextEl: ".swiper-button-next",
+  //         prevEl: ".swiper-button-prev",
+  //       },
 
-        // And if we need scrollbar
-        scrollbar: {
-          el: ".swiper-scrollbar",
-        },
-      };
-      var swiper = new Swiper(".pro-filtr-cate-bx", config);
-      const filters = document.querySelectorAll(
-        ".pro-filtr-cate-carousal span"
-      );
-      function updateFilter(activeFilter) {
-        const filters = document.querySelectorAll(
-          ".pro-filtr-cate-carousal span"
-        );
-        if (!activeFilter) {
-          filters[0].classList.add("active");
-          activeFilter = filters[0];
-        }
-        const filter = activeFilter.innerText.toLowerCase();
-        Array.prototype.forEach.call(filters, function (el) {
-          if (el === activeFilter) {
-            el.classList.add("active");
-          } else {
-            el.classList.remove("active");
-          }
-        });
-      }
-      Array.prototype.forEach.call(filters, function (_filter) {
-        _filter.addEventListener("click", function (e) {
-          const self = e.target;
-          const filter = self.getAttribute("data-filter").toLowerCase();
-          updateFilter(self);
-          console.log("filter:", filter);
-          if (filter == "all") {
-            Array.prototype.forEach.call(
-              document.querySelectorAll(".pro-filtr-cate-bx [data-filter]"),
-              function (_item) {
-                _item.classList.remove("non-swiper-slide");
-                _item.classList.add("swiper-slide");
-              }
-            );
-            swiper.destroy();
-            swiper = new Swiper(".pro-filtr-cate-bx", config);
-          } else {
-            Array.prototype.forEach.call(
-              document.querySelectorAll(
-                ".pro-filtr-cate-bx [data-filter]:not([data-filter='" +
-                  filter +
-                  "'])"
-              ),
-              (el) => {
-                el.classList.add("non-swiper-slide");
-                el.classList.remove("swiper-slide");
-                el.removeAttribute("style");
-              }
-            );
-            Array.prototype.forEach.call(
-              document.querySelectorAll(
-                ".pro-filtr-cate-bx [data-filter='" + filter + "']"
-              ),
-              (el) => {
-                el.classList.remove("non-swiper-slide");
-                el.classList.add("swiper-slide");
-                el.removeAttribute("style");
-              }
-            );
-            swiper.destroy();
-            swiper = new Swiper(".pro-filtr-cate-bx", config);
-          }
-        });
-      });
-      updateFilter(null);
-    }
-  };
+  //       // And if we need scrollbar
+  //       scrollbar: {
+  //         el: ".swiper-scrollbar",
+  //       },
+  //     };
+  //     var swiper = new Swiper(".pro-filtr-cate-bx", config);
+  //     const filters = document.querySelectorAll(
+  //       ".pro-filtr-cate-carousal span"
+  //     );
+  //     function updateFilter(activeFilter) {
+  //       const filters = document.querySelectorAll(
+  //         ".pro-filtr-cate-carousal span"
+  //       );
+  //       if (!activeFilter) {
+  //         filters[0].classList.add("active");
+  //         activeFilter = filters[0];
+  //       }
+  //       const filter = activeFilter.innerText.toLowerCase();
+  //       Array.prototype.forEach.call(filters, function (el) {
+  //         if (el === activeFilter) {
+  //           el.classList.add("active");
+  //         } else {
+  //           el.classList.remove("active");
+  //         }
+  //       });
+  //     }
+  //     Array.prototype.forEach.call(filters, function (_filter) {
+  //       _filter.addEventListener("click", function (e) {
+  //         const self = e.target;
+  //         const filter = self.getAttribute("data-filter").toLowerCase();
+  //         updateFilter(self);
+  //         console.log("filter:", filter);
+  //         if (filter == "all") {
+  //           Array.prototype.forEach.call(
+  //             document.querySelectorAll(".pro-filtr-cate-bx [data-filter]"),
+  //             function (_item) {
+  //               _item.classList.remove("non-swiper-slide");
+  //               _item.classList.add("swiper-slide");
+  //             }
+  //           );
+  //           swiper.destroy();
+  //           swiper = new Swiper(".pro-filtr-cate-bx", config);
+  //         } else {
+  //           Array.prototype.forEach.call(
+  //             document.querySelectorAll(
+  //               ".pro-filtr-cate-bx [data-filter]:not([data-filter='" +
+  //                 filter +
+  //                 "'])"
+  //             ),
+  //             (el) => {
+  //               el.classList.add("non-swiper-slide");
+  //               el.classList.remove("swiper-slide");
+  //               el.removeAttribute("style");
+  //             }
+  //           );
+  //           Array.prototype.forEach.call(
+  //             document.querySelectorAll(
+  //               ".pro-filtr-cate-bx [data-filter='" + filter + "']"
+  //             ),
+  //             (el) => {
+  //               el.classList.remove("non-swiper-slide");
+  //               el.classList.add("swiper-slide");
+  //               el.removeAttribute("style");
+  //             }
+  //           );
+  //           swiper.destroy();
+  //           swiper = new Swiper(".pro-filtr-cate-bx", config);
+  //         }
+  //       });
+  //     });
+  //     updateFilter(null);
+  //   }
+  // };
 
   const handleToursSt2Swiper = () => {
     if (typeof Swiper === "undefined") {
@@ -854,7 +854,7 @@ const TravllaCarousel = function () {
       handleToursSt2Swiper();
       handleToursSt3Swiper();
       handleBlogSt2Swiper();
-      handleFilterSwiper();
+      // handleFilterSwiper();
       handleTrvTourGuide();
       handleTrvGallerySwiper();
     },
