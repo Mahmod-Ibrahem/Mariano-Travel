@@ -1,9 +1,22 @@
 import './bootstrap';
-
 const Main_menu_btn = document.getElementById("menu-btn");
+
 const menu = document.getElementById("menu");
+
+/*Hamburger Function */
+if (Main_menu_btn != null) {
+    Main_menu_btn.addEventListener("click", function()
+    {
+        navToggle()
+    })
+}
+if (Main_menu_btn != null) {
+    Main_menu_btn.addEventListener("click", function()
+    {
+        navToggle()
+    })
+}
 const menuOverlay = document.getElementById("menu-overlay");
-const navbar = document.getElementById("navbar");
 
 /* Hamburger & Sidebar Logic */
 if (Main_menu_btn != null) {

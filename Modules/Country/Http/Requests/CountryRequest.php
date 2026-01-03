@@ -23,6 +23,7 @@ class CountryRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'route_name' => 'required|string',
             'is_active' => 'required|boolean',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'locale' => 'nullable|string',

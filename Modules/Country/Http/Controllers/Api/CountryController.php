@@ -74,6 +74,7 @@ class CountryController extends Controller
         }
 
         $country->is_active = $validatedData['is_active'];
+        $country->route_name = $validatedData['route_name'];
         $country->setTranslation('name', $validatedData['locale'] ?? app()->getLocale(), $validatedData['name']);
         $country->save();
 

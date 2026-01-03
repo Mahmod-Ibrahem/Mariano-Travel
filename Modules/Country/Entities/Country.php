@@ -12,7 +12,7 @@ class Country extends Model
 {
     use HasFactory, HasTranslations, Sluggable;
 
-    protected $fillable = ['name', 'is_active', 'image', 'slug'];
+    protected $fillable = ['name', 'is_active', 'image', 'slug', 'route_name'];
     public $translatable = ['name', 'slug'];
 
     public function tours()

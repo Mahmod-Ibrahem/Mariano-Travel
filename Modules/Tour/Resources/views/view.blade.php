@@ -7,7 +7,6 @@
         'image' => $category->image,
         'breadcrumb' => $category->name
     ])
-        @include('tour::components.tour-listing')
-        <button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
+                @include('tour::components.tour-listing')
 @endsection
     

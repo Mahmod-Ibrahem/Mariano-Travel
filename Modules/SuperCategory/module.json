@@ -5,7 +5,7 @@
     "keywords": [],
     "priority": 0,
     "providers": [
-        "Modules\\SuperCategory\\App\\Providers\\SuperCategoryServiceProvider"
+        "Modules\\SuperCategory\\app\\Providers\\SuperCategoryServiceProvider"
     ],
     "files": []
 }

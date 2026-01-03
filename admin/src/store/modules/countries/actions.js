@@ -16,6 +16,7 @@ export function getCountry({commit}, countryId) {
 export function createCountry({commit}, country) {
     const form = new FormData();
     form.append('name', country.name);
+    form.append('route_name', country.route_name);
     form.append('is_active', country.is_active ? 1 : 0);
     if (country.image) {
         form.append('image', country.image);
@@ -27,6 +28,7 @@ export function updateCountry({commit}, country) {
     const id = country.id;
     const form = new FormData();
     form.append('name', country.name);
+    form.append('route_name', country.route_name);
     form.append('is_active', country.is_active ? 1 : 0);
     if (country.image instanceof File) {
         form.append('image', country.image);

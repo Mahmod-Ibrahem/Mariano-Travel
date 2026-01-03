@@ -11,12 +11,10 @@
             <a>
 
                 <div
-                    class="absolute left-[-40px] top-[30px] bg-[#a30e0e] rotate-[310deg] h-[30px] w-[150px] text-[12px] text-center pt-[6px] font-medium text-white m-0">
+                    class="absolute left-[-40px] top-[30px] bg-secondry rotate-[310deg] h-[30px] w-[150px] text-[12px] text-center pt-[6px] font-medium text-white m-0">
                     @php
                         $preferenceText = match ($tour['preference']) {
-                            'limited_offers' => 'Limited Offer',
-                            'default' => 'Recommended',
-                            default => 'Hidden Gem',
+                            default => 'Popular',
                         };
                     @endphp
                     {{$preferenceText}}

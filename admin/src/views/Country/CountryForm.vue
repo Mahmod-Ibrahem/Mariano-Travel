@@ -44,6 +44,15 @@
                                 placeholder="Enter Country Name" />
                         </div>
 
+                        <!-- Route Name Field -->
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1.5">
+                                Route Name
+                            </label>
+                            <CustomInput v-model="country.route_name" :errors="errors.route_name"
+                                placeholder="Enter Route Name (optional)" />
+                        </div>
+
                         <!-- Active Status -->
                         <div class="flex items-center gap-3">
                             <input type="checkbox" v-model="country.is_active" id="is_active"
@@ -130,12 +139,14 @@ const loading = ref(false)
 const country = ref({
     id: null,
     name: '',
+    route_name: '',
     is_active: true,
     image: null,
 })
 
 const errors = ref({
     name: [],
+    route_name: [],
     is_active: [],
     image: [],
 })

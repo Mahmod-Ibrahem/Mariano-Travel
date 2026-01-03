@@ -1,6 +1,6 @@
 <div class="relative flex flex-col flex-shrink-0 group snap-start">
     <div class="overflow-hidden w-full aspect-square rounded-3xl shadow-lg relative">
-        <a href="#" class="block w-full h-full">
+        <a href="{{ route('country.index', ['slug' => $country->slug]) }}" class="block w-full h-full">
             <img src="{{$country->image}}"
                 class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500 transform"
                 alt="{{$country->name}}">

@@ -3,65 +3,17 @@
 namespace Modules\Country\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class CountryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index($slug)
     {
-        return view('country::index');
-    }
+        $country = \Modules\Country\Entities\Country::where("slug->" . app()->getLocale(), $slug)->firstOrFail();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('country::create');
-    }
+        $tours = $country->tours()->paginate(1);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request): RedirectResponse
-    {
-        //
-    }
+        $countries = \Modules\Country\Entities\Country::where('is_active', true)->withCount('categories')->get();
 
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('country::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('country::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id): RedirectResponse
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        //
+        return view('country::index', compact('country', 'tours', 'countries'));
     }
 }

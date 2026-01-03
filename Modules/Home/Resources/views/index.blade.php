@@ -6,14 +6,10 @@
     Book unforgettable Egypt tours to Cairo, Luxor, Aswan & the Nile. Private guides, flexible itineraries, and great-value
     packages—reserve today.
 @endsection
-@section('title')
-    MrEgyptTorus
-@endsection
 @section('content')
     <!-- LOADING AREA START ===== -->
     {{-- @include('layout.loading-start') --}}
     <!-- LOADING AREA  END ===== -->
-    @include('layout.cursor-pointer')
     @include('home::banner')
     @include('home::why-choose-us')
     @include('home::popular-destination')

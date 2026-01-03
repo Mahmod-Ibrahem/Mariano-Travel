@@ -128,8 +128,9 @@ class TourController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tour $product)
+    public function destroy(string $id)
     {
+        $product = Tour::findOrFail($id);
         if ($product->tour_cover) {
             $relativePath = $this->getRelativePath($product->tour_cover);
             if (Storage::exists($relativePath)) {

@@ -1,4 +1,4 @@
-<div class="mx-auto pt-12 pb-5  relative bg-cover " style="background-image:url({{ asset('Images/hero-bg.jpg') }})">
+<div class="mx-2 md:mx-auto pt-12 pb-5  relative bg-cover " style="background-image:url({{ asset('Images/hero-bg.jpg') }})">
     <div class="parent_container">
 
         <div class="flex flex-col space-y-10 py-8 md:flex-row md:space-x-10 md:justify-around md:space-y-0 md:py-16">

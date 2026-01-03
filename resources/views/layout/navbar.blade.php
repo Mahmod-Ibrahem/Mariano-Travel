@@ -2,7 +2,7 @@
     class=" w-full transition-all duration-500 bg-transparent border-b border-transparent {{ Request::is('/') ? 'shadow-none absolute top-0 z-50' : 'shadow' }}">
     <div class="mx-auto flex justify-between items-center px-4 md:px-8">
         <!-- Logo -->
-        <a href="/" class="z-50 block w-36 relative">
+        <a href="/" class="z-50 block w-24 md:w-36 relative">
             <img src="{{ asset('Images/logo.jpg') }}" alt="logo" class="h-full w-auto object-contain">
         </a>
 
@@ -93,6 +93,13 @@
                     class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/10 hover:text-secondry transition-all">
                     <i class="fas fa-box text-base"></i>
                     <span>Tour Packages</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('services.index') }}"
+                    class="flex items-center gap-3 py-3 px-4 rounded-xl hover:bg-white/10 hover:text-secondry transition-all">
+                    <i class="fas fa-concierge-bell text-base"></i>
+                    <span>Services</span>
                 </a>
             </li>
 

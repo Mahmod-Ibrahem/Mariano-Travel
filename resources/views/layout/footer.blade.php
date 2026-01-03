@@ -1,7 +1,7 @@
 <!-- FOOTER START -->
 <footer class="pt-20 bg-white border-t border-gray-100">
 
-    <div class="container mx-auto">
+    <div class="container mx-2 md:mx-auto">
         <div class="sm:pt-20 pt-10 border-b border-gray-100">
             <div class="grid grid-cols-12">
                 <div class="lg:col-span-3 col-span-12 sm:px-3.75">

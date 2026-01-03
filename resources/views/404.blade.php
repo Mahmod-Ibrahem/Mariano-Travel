@@ -3,7 +3,7 @@
     <div class="page-content">
 
         <!-- Error SECTION START -->
-        <div class="xl:pt-30 pt-12.5 xl:pb-50 pb-5 bg-[url(../images/error-bg-cloud.png)] bg-no-repeat bg-[center_bottom]">
+        <div class="xl:pt-30 pt-12.5 xl:pb-50 pb-5 bg-[url({{ asset('assets/images/error-bg-cloud.png') }})] bg-no-repeat bg-[center_bottom]">
             <div class="container">
                 <div>
                     <div class="text-center lg:flex items-center justify-between">
@@ -25,7 +25,8 @@
                             </div>
                         </div>
                         <div class="lg:max-w-167.5 max-w-100 lg:pl-5 max-lg:mx-auto mb-7.5">
-                            <img src="assets/images/error-bg.png" alt="img" width="650" height="697" loading="lazy">
+                            <img src="{{ asset('assets/images/error-bg.png') }}" alt="img" width="650" height="697"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
